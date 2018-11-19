@@ -3,11 +3,6 @@
     left: 140px;
 }
 
-.section {
-    padding-top: 5em;
-    padding-bottom: 5em;
-}
-
 .section.banner {
     padding: 0;
 }
@@ -282,3 +277,7 @@
     background: #ff4200;
 }
 
+.about .fp-tableCell {
+    vertical-align: baseline;
+    padding-top: 200px;
+}
