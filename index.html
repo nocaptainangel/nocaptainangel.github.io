@@ -9,9 +9,14 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
+
+    <header class="fixed-top">
+       <img src="img/logo2.png" height="40">
+    </header>
 
     <main id="fullpage">
         <div class="section banner">
@@ -19,16 +24,22 @@
             <div class="container d-flex h-100">
                 <div class="row col text-center">
                     <div class="col-12 justify-content-center align-self-center">
-                        <h1 class="text-center">
+                        <h1 class="text-left">
+                            <span>Hello,</span>
+                            <br>
                             <span>I am </span>
                             <span class="words-wrapper">
                                 <b>Angel Leijendekker</b>
-                                <b class="hidden">Maganda</b>
-                                <b class="hidden">Sexy</b>
+                                <b class="hidden">a Web Developer</b>
+                                <b class="hidden">a Web and UI/UX Designer</b>
                             </span>
                         </h1>
                     </div>
                 </div>
+            </div>
+            <div class="scroll-down is-active is-inview" scroll-down="home" data-controller="opinview" op-inview="0, 0.7" op-inview-deactivate="">
+            <div class="scroll-down__text"><span>scroll down</span></div>
+            <div class="scroll-down__line"></div>
             </div>
         </div>
         <div class="section">Section 2</div>

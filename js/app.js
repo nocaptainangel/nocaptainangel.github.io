@@ -9,7 +9,13 @@
 
     // Full page of sections
     $('#fullpage').fullpage({
-        licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE'
+        licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+        navigation: true,
+        navigationPosition: 'right',
+        navigationTooltips: ['firstSlide', 'secondSlide'],
+        showActiveTooltip: true,
+        slidesNavigation: true,
+        slidesNavPosition: 'bottom',
     });
 
     // Animate the banner words
