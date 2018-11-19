@@ -1,0 +1,40 @@
+.section {
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+
+.section.banner {
+    padding: 0;
+}
+
+.banner {
+    background: url(../img/banner-wallpaper.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+
+.banner .cover {
+    background-color: #000;
+    height: 100%;
+    left: 0;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.banner span {
+    display: inline-block;
+    height: 4rem;
+    overflow: hidden;
+}
+
+.banner .words-wrapper b {
+    white-space: nowrap;
+}
+
+.banner .words-wrapper b.hidden {
+    display: none;
+}
