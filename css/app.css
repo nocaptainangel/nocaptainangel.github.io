@@ -49,6 +49,95 @@
     display: none;
 }
 
+.vline-1 {
+  left: 20%;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+.vline-2 {
+    left: 40%;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.vline-3 {
+    left: 60%;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+}
+
+.vline-4 {
+    left: 80%;
+    -webkit-animation-delay: 1.5s;
+    animation-delay: 1.5s;
+}
+
+[class^=vline] {
+    width: 1px;
+    height: 100%;
+    background: rgba(255,255,255,.2);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    -webkit-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-animation-name: lineanim;
+    animation-name: lineanim;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: cubic-bezier(.785,.135,.15,.86);
+    animation-timing-function: cubic-bezier(.785,.135,.15,.86);
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+}
+
+@-webkit-keyframes lineanim {
+    50% {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+        -webkit-transform-origin: top left;
+        transform-origin: top left
+    }
+
+    50.1% {
+        -webkit-transform-origin: bottom left;
+        transform-origin: bottom left
+    }
+
+    100% {
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+        -webkit-transform-origin: bottom left;
+        transform-origin: bottom left
+    }
+}
+
+@keyframes lineanim {
+    50% {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+        -webkit-transform-origin: top left;
+        transform-origin: top left
+    }
+
+    50.1% {
+        -webkit-transform-origin: bottom left;
+        transform-origin: bottom left
+    }
+
+    100% {
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+        -webkit-transform-origin: bottom left;
+        transform-origin: bottom left
+    }
+}
+
 /*------ scroll Round ------*/
 .map-play {
     position: absolute;
@@ -73,7 +162,6 @@
     -ms-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
 }
-
 
 @-webkit-keyframes rotating {
   from {
@@ -141,15 +229,15 @@
     margin-top: -1px; }
 
 .scroll-down__line:after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 0;
-      border-bottom: 2px solid #fff;
-      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0s linear 0.5s;
-      transform-origin: right center;
-      transform: scale(0.001, 1);
-      opacity: 0; }
+    content: '';
+    display: block;
+    width: 100%;
+    height: 0;
+    border-bottom: 2px solid #fff;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0s linear 0.5s;
+    transform-origin: right center;
+    transform: scale(0.001, 1);
+    opacity: 0; }
 .scroll-down__text {
     color: #c4c5c6;
     font-size: 9px;
@@ -158,21 +246,39 @@
     line-height: 1;
     letter-spacing: 0.2em;
     font-family: "Replica-Bold", sans-serif;
-    overflow: hidden; }
+    overflow: hidden; 
+}
 .scroll-down__text span {
-      display: block;
-      transform: translate3d(0, 100%, 0);
-      transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1); }
+    display: block;
+    transform: translate3d(0, 100%, 0);
+    transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1); 
+}
 .scroll-down.is-active.is-inview .scroll-down__text {
-    animation: bounce 2.5s infinite; }
+    animation: bounce 2.5s infinite; 
+}
 .scroll-down.is-active.is-inview .scroll-down__text span {
-      transform: none; }
+    transform: none; 
+}
 .scroll-down.is-active.is-inview .scroll-down__line {
-    animation: scroll-down-line 2.5s infinite 851ms; }
+    animation: scroll-down-line 2.5s infinite 851ms;
+}
 .scroll-down.is-active.is-inview .scroll-down__line:after {
-      transform: none;
-      opacity: 1;
-      transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0s linear; }
+    transform: none;
+    opacity: 1;
+    transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0s linear; 
+}
 .is-body-touch .scroll-down {
-    display: none; }
+    display: none; 
+}
+
+#fp-nav ul li .fp-tooltip.fp-right {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #777575;
+}
+
+#fp-nav ul li a span {
+    background: #ff4200;
+}
 

@@ -9,25 +9,27 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/fontawesome-all.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="css/fullpage.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
 
-    <header class="fixed-top">
-       <img src="img/logo2.png" height="40">
-    </header>
-
     <main id="fullpage">
-        <div class="section banner">
+        <div class="section banner" data-anchor="Home" data-tooltip="Home">
+            <div class="v-lines">
+                <div class="vline-1"></div>
+                <div class="vline-2"></div>
+                <div class="vline-3"></div>
+                <div class="vline-4"></div>
+            </div>
             <div class="cover"></div>
-            <div class="container d-flex h-100">
-                <div class="row col text-center">
-                    <div class="col-12 justify-content-center align-self-center">
+            <div class="container">
+                <div class="row d-flex justify-content-md-center">
+                    <div class="col-md-10 justify-content-center align-self-center">
                         <h1 class="text-left">
-                            <span>Hello,</span>
-                            <br>
-                            <span>I am </span>
+                            <div>Hello,</div>
+                            <span>I am</span>
                             <span class="words-wrapper">
                                 <b>Angel Leijendekker</b>
                                 <b class="hidden">a Web Developer</b>
@@ -35,16 +37,31 @@
                             </span>
                         </h1>
                     </div>
+                    <div class="col-md-10">
+                        <i class="fab fa-facebook-f p-2"></i>
+                        <i class="fab fa-instagram p-2"></i>
+                        <i class="fab fa-github p-2"></i>
+                        <i class="fab fa-behance p-2"></i>
+                    </div>
                 </div>
             </div>
             <div class="scroll-down is-active is-inview" scroll-down="home" data-controller="opinview" op-inview="0, 0.7" op-inview-deactivate="">
-            <div class="scroll-down__text"><span>scroll down</span></div>
-            <div class="scroll-down__line"></div>
+                <div class="scroll-down__text"><span>scroll down</span></div>
+                <div class="scroll-down__line"></div>
+            </div>   
+        </div>
+
+        <div class="section about" data-anchor="About" data-tooltip="About">
+            <div class="col-md-6">
+                <h1 class="mt-1">ABOUT ME</h1>
+                <p>blahhh</p>
             </div>
         </div>
-        <div class="section">Section 2</div>
-        <div class="section">Section 3</div>
-        <div class="section">Section 4</div>
+
+
+
+        <div class="section" data-anchor="Works" data-tooltip="Works">Section 3</div>
+        <div class="section" data-anchor="Contact" data-tooltip="Contact">Section 4</div>
     </main>
 
     <script src="js/jquery.min.js"></script>
