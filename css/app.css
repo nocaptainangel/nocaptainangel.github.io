@@ -10,6 +10,15 @@ body {
     height: 100%
 }
 
+main {
+    height: 100%;
+    min-height: 100%;
+}
+
+section {
+    height: 100%;
+}
+
 .jquery-ripples {
     position: absolute;
     z-index: 0;
@@ -22,7 +31,7 @@ body {
 .cover {
     background-color: #000;
     height: 100%;
-    opacity: 0.5;
+    opacity: 0.25;
     position: absolute;
     width: 100%;
     z-index: 0;
@@ -70,23 +79,108 @@ body {
 }
 
 #home {
-    background-image: url(/img/1.jpg);
+    background-image: url(/img/nnn.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
     padding-left: 22%;
     padding-top: 10%;
-    width: 100%;
+}
+
+/* Split the screen in half */
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.position {
+    display: table-cell;
+    vertical-align: middle;
+}
+/* Control the left side */
+.left {
+    left: 0;
+    width: 40vw;
+    background-image: url(/img/girl3.jpg);
+}
+
+.left h2 {
+    font-family: 'Reem Kufi', sans-serif;
+    color: #FA7268;
+    font-size: 40px;
+    padding-left: 50px;
+    position: relative;
+    margin-bottom: 1px;
+}
+
+.qoute {
+    font-family: 'Reem Kufi', sans-serif;
+    font-style: italic;
+    color: #92817f;
+    font-size: 13px;
+    padding-left: 50px;
+}
+
+/* Control the right side */
+.right {
+    right: 0;
+    width: 60vw;
+    background-color: #1b1b1b;
+    padding-top: 86px;
+}
+
+.right h2 {
+    font-family: 'Reem Kufi', sans-serif;
+    color: #FA7268;
+    font-size: 30px;
+    padding-left: 50px;
+    padding-top: 30px;
+    position: relative;
+    margin-bottom: 3px;
+}
+
+.right h3 {
+    font-family: 'Reem Kufi', sans-serif;
+    color: #FA7268;
+    font-size: 30px;
+    padding-left: 50px;
+    padding-top: 20px;
+    position: relative;
+    margin-bottom: 3px;
+}
+
+.right p {
+    padding-top: 8px;
+    font-family: poppins;
+    color: #92817f;
+    font-size: 11px;
+    padding-left: 50px;
+    width: 75%;
+}
+
+hr {
+    height: 1px;
+    border: 0;
+    color: #333;
+    background-color: #333;
+    width: 85%;
+    margin-left: 50px;
 }
 
 #title {
-    font-family: poppins;
-    font-size: 45px;
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 55px;
     font-weight: 600;
+    letter-spacing: 3px;
     line-height: 65px;
     text-align: left;
     color: #ffffff;
     position: relative;
+    margin-bottom: 12px;
 }
 
 .subtitle {
@@ -97,7 +191,6 @@ body {
     background-color: #000;
     opacity: 0.25;
     height: 35px;
-    width: 380px;
     border-radius: 5px;
     text-align: center;
     position: relative;
@@ -118,7 +211,7 @@ body {
 .box3 {
     background-color: #FA7268;
     height: 45px;
-    width: 165px;
+    width: 200px;
     border-radius: 5px;
     text-align: center;
     position: relative;
@@ -134,9 +227,10 @@ body {
 }
 
 footer {
+    bottom: 0;
+    height: 70px;
     position: fixed;
     width: 100%;
-    bottom: 70px;
     z-index: 1000;
 }
 
@@ -227,15 +321,20 @@ footer {
     width: 100%;
 }
 
-.footer3 .topnav {
+.footer3 .botnav {
     position: absolute;
     list-style-type: none;
     color: pink;
-    top: 43%;
     left: 40%;
+    list-style: none;
+    margin: 28px 0;
 }
 
-.topnav a {
+.footer3 .botnav > li {
+    display: inline-block;
+}
+
+.botnav a {
     color: #fff;
     font-family: poppins;
     font-size: 10px;
@@ -246,18 +345,18 @@ footer {
     padding-right: 70px;
 }
 
-.topnav a::before {
+.botnav a::before {
     content: "-";
     color: pink;
     padding-right: 10px;
 }
 
-.topnav a:hover {
+.botnav a:hover {
     color: #FA7268;
     transition: all 0.3s ease;
 }
 
-.topnav a.active { /*mali to code haahah*/
+.botnav li.active a { /*mali to code haahah*/
     color: #FA7268;
 }
 
@@ -311,4 +410,33 @@ h6 {
 
 .icon-bar a i {
     transition: transform 0.3s ease;
+}
+
+.flexcroll { 
+    width:800px;
+    height:600px;
+    overflow-y: hidden;
+}
+
+.flexcroll:hover {
+    overflow-y : auto;
+}
+
+.flexcroll::-webkit-scrollbar {
+    width: 2px;
+}
+ 
+/* Track */
+.flexcroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+ 
+/* Handle */
+.flexcroll::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background: #FA7268;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
