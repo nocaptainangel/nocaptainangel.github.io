@@ -412,29 +412,29 @@ h6 {
     transition: transform 0.3s ease;
 }
 
-.flexcroll { 
+.flexscroll { 
     width:800px;
     height:600px;
     overflow-y: hidden;
 }
 
-.flexcroll:hover {
+.flexscroll:hover {
     overflow-y : auto;
 }
 
-.flexcroll::-webkit-scrollbar {
+.flexscroll::-webkit-scrollbar {
     width: 2px;
 }
  
 /* Track */
-.flexcroll::-webkit-scrollbar-track {
+.flexscroll::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
     -webkit-border-radius: 2px;
     border-radius: 2px;
 }
  
 /* Handle */
-.flexcroll::-webkit-scrollbar-thumb {
+.flexscroll::-webkit-scrollbar-thumb {
     -webkit-border-radius: 2px;
     border-radius: 2px;
     background: #FA7268;

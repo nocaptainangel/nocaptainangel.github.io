@@ -5,7 +5,9 @@ $(document).ready(function () {
     new SectionFade('main', {
         menu: '#menu',
         sectionSelector: '.sf',
-        includeAnchor: true
+        includeAnchor: true,
+        delay: 700,
+        scrollables: '.flexscroll'
     });
 
    //Circle following mouse
