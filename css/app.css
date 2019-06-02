@@ -412,7 +412,7 @@ h6 {
     transition: transform 0.3s ease;
 }
 
-.flexscroll { 
+.flexscroll {
     width:800px;
     height:600px;
     overflow-y: hidden;
@@ -425,20 +425,22 @@ h6 {
 .flexscroll::-webkit-scrollbar {
     width: 2px;
 }
- 
+
 /* Track */
 .flexscroll::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     -webkit-border-radius: 2px;
     border-radius: 2px;
 }
- 
+
 /* Handle */
 .flexscroll::-webkit-scrollbar-thumb {
     -webkit-border-radius: 2px;
     border-radius: 2px;
     background: #FA7268;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 
 #works {
@@ -454,11 +456,14 @@ h6 {
 
 img {
     margin: 5px;
-    transition: all 0.5s;
-    width:20%;
-    height:40%;
+    transition: transform 0.5s ease;
+    width: 20%;
+    height: 40%;
+    will-change: transform;
 }
 
 img:hover {
-    transform: scale(1.1)
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    transform: scale(1.1);
 }
