@@ -4,6 +4,7 @@ html {
 }
 
 body {
+    background-color: #1b1b1c;
     margin: 0;
     min-height: 100%;
     padding: 0;
@@ -442,29 +443,54 @@ h6 {
     box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 
-#works {
-    background-color: #1b1b1c;
+#works .content {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
 }
 
-.grid {
+#works .slider {
     display: flex;
+    flex-wrap: nowrap;
+    height: 500px;
+    overflow-x: auto;
+    width: 80%;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+#works .slider::-webkit-scrollbar {
+    display: none;
+}
+
+#works .item {
+    display: flex;
+    margin: 5px;
+    max-height: 100%;
+}
+
+#works .item img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#works .half {
+    align-items: center;
+    display: flex;
+    flex: 2;
+    flex-direction: row;
+    flex-flow: row wrap;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 95px;
 }
 
-img {
-    margin: 5px;
-    transition: transform 0.5s ease;
-    width: 20%;
-    height: 40%;
-    will-change: transform;
+#works .half .item {
+    flex: 2;
 }
 
-img:hover {
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    transform: scale(1.1);
+#works .half .item.end {
+    align-self: flex-end;
 }
 
 #contact {
@@ -564,4 +590,40 @@ button:hover {
 .tools {
     color: #FA7268;
     font-size: 50px;
+}
+
+#i-love-you {
+    background-color: rgba(0,0,0, 0.95);
+    display: none;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+#i-love-you .close {
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+
+#i-love-you .content {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#i-love-you img {
+    max-height: 100%;
+    max-width: 100%;
 }

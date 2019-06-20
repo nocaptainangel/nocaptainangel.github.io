@@ -75,11 +75,23 @@
         </section>
 
         <section id="works" class="sf">
-             <div class="grid">
-                <img src="/img/monkey.png">
-                <img src="/img/zero.jpg">
-                <img src="/img/arcadia.jpg">
-                <img src="/img/Resto.jpg">
+            <button id="left" style="position: absolute; left: 0; top: 0; height: 100%; width: 100px; display: none;">Left</button>
+            <button id="right" style="position: absolute; right: 0; top: 0; height: 100%; width: 100px; display: none;">Right</button>
+            <div class="content">
+                <div class="slider">
+                    <div class="half">
+                        <div class="item">
+                            Works
+                        </div>
+                        <img class="item end" src="/img/monkey.png" data-popup="/img/monkey.png">
+                    </div>
+                    <img class="item" src="/img/zero.jpg" data-popup="/img/zero.jpg">
+                    <img class="item" src="/img/arcadia.jpg" data-popup="/img/arcadia.jpg">
+                    <img class="item" src="/img/Resto.jpg" data-popup="/img/Resto.jpg">
+                    <img class="item" src="/img/Resto.jpg" data-popup="/img/Resto.jpg">
+                    <img class="item" src="/img/arcadia.jpg" data-popup="/img/arcadia.jpg">
+                    <img class="item" src="/img/zero.jpg" data-popup="/img/zero.jpg">
+                </div>
             </div>
         </section>
 
@@ -128,6 +140,16 @@
             </ul>
         </div>
     </footer>
+
+    <!-- Did you get the reference? This is for the full screen image viewer -->
+    <div id="i-love-you" style="z-index: 3000;">
+        <a class="close">
+            <i class="fas fa-times fa-2x"></i>
+        </a>
+        <div class="content">
+            <img src="" alt="">
+        </div>
+    </div>
 
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/jquery.ripples-min.js"></script>
