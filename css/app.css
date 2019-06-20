@@ -105,7 +105,7 @@ section {
 .left {
     left: 0;
     width: 40vw;
-    background-image: url(/img/girl3.jpg);
+    background-image: url(/img/jap7.jpg);
 }
 
 .left h2 {
@@ -138,7 +138,6 @@ section {
     color: #FA7268;
     font-size: 30px;
     padding-left: 50px;
-    padding-top: 30px;
     position: relative;
     margin-bottom: 3px;
 }
@@ -195,7 +194,7 @@ hr {
     text-align: center;
     position: relative;
     display: table;
-    margin-bottom: 40px;
+    margin-top: 20px;
 }
 
 .box2 h4 {
@@ -466,4 +465,109 @@ img:hover {
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     transform: scale(1.1);
+}
+
+#contact {
+    background-color: #1b1b1c;
+}
+
+.contact-left {
+    width: 1400px;
+    height: 700px;
+    position: fixed;
+}
+
+.contact-container {
+    margin-top: 75px;
+    position: absolute;
+    right: 150px;
+}
+
+.contact-me, .contact-form {
+    width: 500px;
+}
+
+.contact-me h5 {
+    color: #FA7268;
+    font-family: 'Reem Kufi', sans-serif;
+    letter-spacing: 5px;
+    font-size: 25px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.email {
+    color: #FA7268;
+    font-family: 'Reem Kufi', sans-serif;
+    letter-spacing: 1px;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.sub-text {
+    color: #5e5f60;
+    font-family: 'Reem Kufi', sans-serif;
+    letter-spacing: 1px;
+    font-size: 12px;
+    /*font-style: italic;*/
+}
+
+.contact-form {
+    text-align: center;
+    margin-top: 22px;
+    margin-bottom: 10px;
+}
+
+input, textarea, button{
+    font-family: 'Reem Kufi', sans-serif;
+    color: #FA7268;
+}
+
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    background: rgba(0, 0, 0, 0); 
+    border: none;
+    border-bottom: 1px solid #3c3c3d;
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+input:focus, textarea:focus, button:focus{
+    outline: none;
+    transition: 0.2s ease-in;
+    border-bottom: 1px solid #FA7268;
+}
+
+textarea {
+    outline:none;
+    height: 5rem;
+}
+
+button {
+    background-color:#FA7268;
+    border:1px solid #FA7268;
+    color: white;
+    padding: 10px 29px;
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    letter-spacing: 2px;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+
+button:hover {
+    color: #fff;
+    height: 40px;
+    background-color: transparent;
+    transition: 0.2s ease-out;
+    border-radius: 3px;
+}
+
+.tools {
+    color: #FA7268;
+    font-size: 50px;
 }
