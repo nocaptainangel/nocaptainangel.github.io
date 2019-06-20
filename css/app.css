@@ -471,16 +471,10 @@ img:hover {
     background-color: #1b1b1c;
 }
 
-.contact-left {
-    width: 1400px;
-    height: 700px;
-    position: fixed;
-}
 
 .contact-container {
-    margin-top: 75px;
-    position: absolute;
-    right: 150px;
+    padding: 50px 450px;
+    
 }
 
 .contact-me, .contact-form {
@@ -496,13 +490,13 @@ img:hover {
     margin-bottom: 10px;
 }
 
-.email {
+/*.email {
     color: #FA7268;
     font-family: 'Reem Kufi', sans-serif;
     letter-spacing: 1px;
     font-size: 12px;
     font-style: italic;
-}
+}*/
 
 .sub-text {
     color: #5e5f60;
