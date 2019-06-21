@@ -467,12 +467,12 @@ h6 {
 #works .item {
     display: flex;
     margin: 5px;
-    max-height: 100%;
+    max-height: 80%;
 }
 
 #works .item img {
-    max-height: 100%;
-    max-width: 100%;
+    max-height: 80%;
+    max-width: 40%;
 }
 
 #works .half {
@@ -589,7 +589,22 @@ button:hover {
 
 .tools {
     color: #FA7268;
-    font-size: 50px;
+    font-size: 40px;
+    
+}
+
+figure {
+    padding-left: 5px;
+    display:inline-block;
+    text-align: center;
+}
+
+
+figcaption {
+    font-size: 12px;
+    margin-top: 10px;
+    font-family: Poppins;
+    text-align: center;
 }
 
 #i-love-you {
