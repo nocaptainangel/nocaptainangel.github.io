@@ -495,15 +495,19 @@ h6 {
 
 #contact {
     background-color: #1b1b1c;
+    display: table;
 }
 
-
 .contact-container {
-    padding: 50px 450px;
-    
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
 }
 
 .contact-me, .contact-form {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -70px;
     width: 500px;
 }
 
@@ -545,8 +549,8 @@ input, textarea, button{
 
 input[type=text], select, textarea {
     width: 100%; /* Full width */
-    padding: 12px; /* Some padding */ 
-    background: rgba(0, 0, 0, 0); 
+    padding: 12px; /* Some padding */
+    background: rgba(0, 0, 0, 0);
     border: none;
     border-bottom: 1px solid #3c3c3d;
     margin-top: 6px; /* Add a top margin */
@@ -590,7 +594,7 @@ button:hover {
 .tools {
     color: #FA7268;
     font-size: 40px;
-    
+
 }
 
 figure {

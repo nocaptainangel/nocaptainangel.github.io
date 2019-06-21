@@ -31,8 +31,7 @@ $(document).ready(function () {
         menu: '#menu',
         sectionSelector: '.sf',
         includeAnchor: true,
-        delay: 700,
-        scrollables: '.flexscroll'
+        delay: 700
     });
 
     // On click of "data-popup" attributes, open the image popup overlay
@@ -93,6 +92,44 @@ $(document).ready(function () {
         slider.animate({
             scrollLeft: '+=' + (width - sliderMargin)
         }, sliderDelay, 'swing', toggleButtons);
+    });
+
+    // Contact form submit
+    $('.contact-container').submit(function (e) {
+        e.preventDefault();
+
+        var formData = $(this).serializeArray();
+        var object = {};
+
+        $.each(formData, function () {
+            object[this.name] = this.value;
+        });
+
+        $.ajax({
+            url: 'https://inaapi.herokuapp.com',
+            type: 'POST',
+            data: JSON.stringify(object),
+            contentType: 'application/json'
+        }).then(function (response) {
+            if (response.message) {
+                // Success
+
+
+            } else if (response.errors) {
+                // Form Errors
+
+
+            } else if (response.error) {
+                // General error
+
+
+            }
+        }).fail(function (error) {
+            // There is an error
+
+
+
+        });
     });
 
     /**
