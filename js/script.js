@@ -105,6 +105,10 @@ $(document).ready(function () {
             object[this.name] = this.value;
         });
 
+
+
+
+
         $.ajax({
             url: 'https://inaapi.herokuapp.com',
             type: 'POST',
@@ -113,7 +117,7 @@ $(document).ready(function () {
         }).then(function (response) {
             if (response.message) {
                 // Success
-
+            
 
             } else if (response.errors) {
                 // Form Errors

@@ -87,7 +87,7 @@
         /**
          * Set the current values based on the current section
          */
-        function setCurrent(currentSection) {
+        function setCurrent(currentSection, setHash) {
             current.id = currentSection.id;
             current.element = currentSection;
 
@@ -106,16 +106,18 @@
             }
 
             // Update the other elements
-            updateElements();
+            updateElements(setHash);
         }
 
         /**
          * Update supporting elements
          */
-        function updateElements() {
+        function updateElements(setHash) {
+            setHash = setHash === undefined ? true : !!setHash;
+
             // If the option "includeAnchor" is set to true, change the anchor
             // of the url based on the id of the section
-            if (includeAnchor) {
+            if (includeAnchor && setHash) {
                 changeAnchor();
             }
 
@@ -179,7 +181,7 @@
             var hash = window.location.hash;
 
             if (!hash) {
-                setCurrent(sections[0]);
+                setCurrent(sections[0], false);
             } else {
                 for (var i = 0; i < sections.length; i++) {
                     var section = sections[i];
@@ -341,7 +343,7 @@
     };
 
 
-    // Set the fade varialbe of the window as the fade variable
+    // Set the fade variable of the window as the fade variable
     // of this code
     window.SectionFade = SectionFade;
 })();
