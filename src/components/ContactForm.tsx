@@ -87,18 +87,24 @@ const ContactForm = () => {
   };
 
   return (
-    <form className='text-xl flex flex-col' ref={ref} onSubmit={onSubmit}>
+    <form className='text-lg md:text-xl flex flex-col' ref={ref} onSubmit={onSubmit}>
       <div className='mb-16 font-extralight flex flex-col gap-8'>
-        <div className='flex items-center'>
-          <span>Hello, my name is</span>
-          <Input className='grow' type='text' name='name' placeholder='Your name here' />
-          <span>and I'm interested in</span>
-          <Dropdown className='grow' name='interested' placeholder='Select dropdown' choices={choices} form={ref} />
+        <div className='flex grow flex-col md:flex-row gap-8 md:gap-0'>
+          <div className='flex md:items-center grow flex-col md:flex-row'>
+            <span>Hello, my name is</span>
+            <Input className='grow' type='text' name='name' placeholder='Your name here' />
+          </div>
+          <div className='flex md:items-center grow flex-col md:flex-row'>
+            <span>and I'm interested in</span>
+            <Dropdown className='grow' name='interested' placeholder='Select dropdown' choices={choices} form={ref} />
+          </div>
         </div>
-        <div className='flex items-center'>
-          You can get in touch with me at
-          <Input className='w-1/3 grow-0' type='text' name='email' placeholder='Your email here' />
-          <span className='font-bold text-xl'>.</span>
+        <div className='flex md:items-center grow flex-col md:flex-row'>
+          <span>You can get in touch with me at</span>
+          <div className='flex grow'>
+            <Input className='w-1/2 grow md:grow-0' type='text' name='email' placeholder='Your email here' />
+            <span className='hidden font-bold text-xl md:inline-block'>.</span>
+          </div>
         </div>
         {!!error && <div className='text-error text-sm font-medium'>{error}</div>}
         {!!message && <div className='text-primary text-sm font-medium'>{message}</div>}

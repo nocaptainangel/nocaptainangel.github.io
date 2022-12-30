@@ -20,10 +20,11 @@ const classNames = [
   'border-b-primary',
   'text-base',
   'font-thin',
-  'mx-3',
+  'md:mx-3',
   'p-2',
   'text-center',
   'placeholder:text-tertiary',
+  'rounded-none',
 ];
 
 export const Input = (props: InputProps) => {
@@ -53,10 +54,12 @@ export const Dropdown = (props: DropdownProps) => {
         className={`${classNames.join(' ')} relative cursor-pointer ${className || ''}`}
         onClick={() => toggleMenu()}
       >
-        <span className='text-tertiary'>{selected?.text || props.placeholder}</span>
+        <span className={!!selected?.text ? 'text-primary' : 'text-tertiary'}>
+          {selected?.text || props.placeholder}
+        </span>
         <span className='absolute right-0'>▼</span>
         {showMenu && (
-          <div className='absolute left-4 mt-3 flex flex-col bg-white shadow-2xl'>
+          <div className='absolute left-4 mt-3 flex flex-col bg-white shadow-2xl z-50'>
             {props.choices.map((choice, index) => (
               <div
                 key={index}

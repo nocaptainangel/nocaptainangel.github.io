@@ -6,6 +6,6 @@ export interface Props {
 const { className } = Astro.props;
 ---
 
-<div class={`py-14 ${className || ''}`}>
+<div class={`py-8 sm:py-14 ${className || ''}`}>
   <slot />
 </div>

@@ -1,7 +1,7 @@
 ---
-import { ArrowDown } from '../components/Arrow';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
+import { ScrollDown } from '../components/Scroll';
 import { BehanceIcon, InstagramIcon, LinkedInIcon, MediumIcon } from '../components/SocialIcon';
 import { SectionTag } from '../components/Typography';
 import Work from '../components/Work';
@@ -12,19 +12,19 @@ import '../styles/global.css';
 
 <Base title='Angel'>
   <!-- Banner -->
-  <Section className='flex h-screen'>
-    <div class='w-28 flex flex-col justify-center items-center gap-6'>
+  <Section className='flex min-h-screen'>
+    <div class='hidden sm:w-10 lg:w-28 sm:flex flex-col justify-center items-center gap-6'>
       <BehanceIcon />
       <InstagramIcon />
       <LinkedInIcon />
       <MediumIcon />
     </div>
-    <div class='grow flex flex-col gap-4'>
+    <div class='grow flex flex-col gap-4 px-8 sm:px-0'>
       <div class='text-2xl pb-2 font-extrabold border-b-2 border-primary w-min'>A</div>
-      <div class='bg-surface flex flex-col justify-center grow items-center'>
-        <div class='max-w-4xl flex flex-col gap-12'>
+      <div class='bg-surface flex flex-col justify-center grow items-center p-8'>
+        <div class='max-w-4xl flex flex-col gap-8 sm:gap-12 relative'>
           <SectionTag>hi, welcome to my portfolio</SectionTag>
-          <h1 class="text-3xl font-['Poppins'] font-medium">
+          <h1 class="text-2xl sm:text-3xl font-['Poppins'] font-medium">
             I’m Angel Leijendekker, a User Interface Designer with human - centered approach based in PH.
           </h1>
           <div class='text-on-surface font-extralight text-sm'>
@@ -34,22 +34,23 @@ import '../styles/global.css';
           </div>
         </div>
       </div>
+      <div class='sm:hidden flex justify-center'>
+        <ScrollDown />
+      </div>
     </div>
-    <div class='w-28 flex flex-col justify-end'>
-      <span
-        class='rotate-180 uppercase whitespace-nowrap self-center items-center flex text-2xs tracking-widest text-secondary [writing-mode:tb-rl]'
-      >
-        <ArrowDown /> Scroll to discover
-      </span>
+    <div class='hidden sm:w-10 lg:w-28 sm:flex flex-col justify-end'>
+      <ScrollDown />
     </div>
   </Section>
 
   <!-- Introduction -->
   <Section className='flex justify-center'>
-    <div class='max-w-4xl flex'>
-      <img class='w-1/2' src='/images/book-reading.jpg' alt='Book reading' />
-      <div class='flex flex-col justify-center relative p-10 grow shrink-[10] gap-4'>
-        <h1 class="text-3xl font-['Poppins'] font-medium whitespace-nowrap p-8 bg-white -ml-20">Nice to meet you.</h1>
+    <div class='max-w-4xl flex flex-col sm:flex-row px-8 lg:px-0'>
+      <img class='w-3/4 sm:w-1/2 object-cover self-center' src='/images/book-reading.jpg' alt='Book reading' />
+      <div class='flex flex-col justify-center relative sm:pl-10 grow md:shrink-[10] gap-4'>
+        <h1 class="text-3xl font-['Poppins'] font-medium md:whitespace-nowrap mt-14 sm:mt-0 sm:p-8 bg-white sm:-ml-20">
+          Nice to meet you.
+        </h1>
         <div class='text-on-surface text-xs leading-relaxed'>
           I enter the world of designing with the goal to create better user interfaces and experiences for all people.
           I'd also like to pursue a Masters Degree in Human - Technology Interaction in the future. When I'm not
@@ -61,9 +62,9 @@ import '../styles/global.css';
 
   <!-- Featured projects -->
   <Section className='flex flex-col items-center'>
-    <div class='max-w-6xl flex flex-col gap-12'>
+    <div class='max-w-6xl flex flex-col gap-12 px-8 xl:px-0'>
       <SectionTag>explore some of my featured projects</SectionTag>
-      <div class='grid grid-cols-2'>
+      <div class='grid md:grid-cols-2'>
         <Work
           name='together'
           title='Together - A volunteering app'
@@ -83,7 +84,7 @@ import '../styles/global.css';
 
   <!-- Contact -->
   <Section className='flex justify-center'>
-    <div class='max-w-6xl flex flex-col gap-12 grow'>
+    <div class='max-w-6xl flex flex-col gap-12 grow px-8 xl:px-0'>
       <SectionTag>have a project in mind?</SectionTag>
       <h1 class="text-3xl font-['Poppins'] font-medium">Let's create something together!</h1>
       <ContactForm client:load />
