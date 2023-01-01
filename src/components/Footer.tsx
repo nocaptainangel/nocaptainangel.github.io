@@ -21,7 +21,7 @@ const Footer = () => {
   return (
     <footer className='flex bg-on-background justify-center mt-24 px-8'>
       <div className='max-w-5xl text-background flex flex-col grow'>
-        <div className='flex flex-col md:flex-row gap-12 py-24'>
+        <div className='flex flex-col sm:flex-row gap-12 py-24'>
           <Social tagline='View on' name='Behance' icon={<BehanceIcon className='h-6 w-6' isLight={true} />} />
           <Social tagline='Heart on' name='Instagram' icon={<InstagramIcon className='h-6 w-6' isLight={true} />} />
           <Social tagline='Connect' name='LinkedIn' icon={<LinkedInIcon className='h-6 w-6' isLight={true} />} />
