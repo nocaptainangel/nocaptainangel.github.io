@@ -1,0 +1,63 @@
+---
+import WorkArticle from '../../layouts/WorkArticle.astro';
+---
+
+<WorkArticle
+  title='Fiora'
+  banner='fiora'
+  name='Fiora - A Flower Shop Website'
+  goals={[
+    'Design a responsive app that provides assistance to customers in purchasing flowers with no person contact due to the pandemic. With immediately enabled click and deliver services, the customers can place an order and process the payment easily.',
+  ]}
+  role='UI Designer | January - February 2022'
+  persona='fiora'
+  userJourney='fiora'
+  wireframe={{
+    diagram: 'fiora',
+    mockups: {
+      lofi: {
+        iframe:
+          'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FIPTvkvn601FXYDmddwDAsc%2FTogether-App%3Fnode-id%3D0%253A1',
+        subtitle:
+          'After I established the Flow Diagram, I started drafting some paper wireframes and translating them into lo-fidelity mockups.',
+      },
+      hifi: {
+        iframe:
+          'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FIPTvkvn601FXYDmddwDAsc%2FTogether-App%3Fnode-id%3D129%253A585',
+        subtitle:
+          "Once the mockups are done, I started working with the high fidelity designs. There are times when I'm not satisfied with the outcome so I ask for help by having a testing phase to get the point of view of other people.",
+      },
+    },
+  }}
+  usability={{
+    texts: [
+      "I tested the prototype to see how user friendly the application is. Testing helps me decide how to refine my mockups based on the feedback that users will provide. Testing also proves whether the potential solution I've been designing addresses the community problem I'm trying to solve.",
+      "I keep on iterating my design until the aesthetic and functionality matches the user's needs.",
+    ],
+    iframe:
+      'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FIPTvkvn601FXYDmddwDAsc%2FTogether-App%3Fnode-id%3D43%253A473',
+  }}
+  conclusions={[
+    "People genuinely want to make a positive difference in the world, but due to time constraints or resources, they are having a hard time. By having a volunteering app, it's an excellent opportunity to make a difference right at the tip of their fingers.",
+    "Seeing technology being used for something that can make a direct impact on people's lives means a lot to me. Organisations should utilise the potential of social networking to make kindness go viral. If we can create a network where people are addicted to kindness, can you imagine what that would do?",
+  ]}
+>
+  <div class='flex flex-col gap-4' slot='research'>
+    <div>
+      Primary research, such as interviews and usability tests, can be time-consuming, and when timelines are short,
+      secondary research can be a life-saver. Instead of taking the time to narrow down the problem space through
+      primary research, I did a secondary research for “Fiora”. Now it has more refined research question and target,
+      reducing the scope and effort of the study.
+    </div>
+    <div>Few of the major insights are as follows:</div>
+    <ol>
+      <li>Consumers like the idea to place an order at their own convenience.</li>
+      <li>Having a website for floral shops gave the owners the chance to create unique advertising approaches.</li>
+      <li>
+        Not only can retail and event florists order from the website whenever they want, but they are also able to
+        browse the entire catalog. Because everything is readily available to them, they may order additional items they
+        may not even have come across otherwise.
+      </li>
+    </ol>
+  </div>
+</WorkArticle>
