@@ -42,4 +42,8 @@
   body {
     @apply font-['Montserrat'] leading-[1.8];
   }
+
+  ol {
+    @apply list-decimal pl-8;
+  }
 }

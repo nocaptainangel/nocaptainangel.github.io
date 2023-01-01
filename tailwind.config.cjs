@@ -12,6 +12,7 @@ module.exports = {
         primary: 'black',
         secondary: 'gray',
         tertiary: '#cfc7c7',
+        accent: '#71bef9',
         error: 'red',
       },
       fontFamily: {

@@ -1,0 +1,148 @@
+---
+import Footer from '../components/Footer';
+import { AccentTitle, SectionTitle } from '../components/Typography';
+import Base from './Base.astro';
+import SectionContent from './SectionContent.astro';
+
+type Wireframe = {
+  diagram: string;
+  mockups: {
+    lofi: Mockup;
+    hifi: Mockup;
+  };
+};
+
+type Mockup = {
+  iframe: string;
+  subtitle?: string;
+};
+
+type Usability = {
+  texts: string[];
+  iframe: string;
+};
+
+export interface Props {
+  title: string;
+  banner: string;
+  name: string;
+  goals: string[];
+  role: string;
+  persona: string;
+  userJourney: string;
+  wireframe: Wireframe;
+  usability: Usability;
+  conclusions: string[];
+}
+
+const { title, banner, name, goals, role, persona, userJourney, wireframe, usability, conclusions } = Astro.props;
+---
+
+<Base title={title}>
+  <img class='h-52 md:h-96 w-full object-cover mb-8' src={`/images/banners/${banner}.png`} alt={name} />
+
+  <!-- Article title & goal -->
+  <SectionContent>
+    <div class='flex flex-col md:grid grid-cols-5 gap-8'>
+      <div class='col-span-2'>
+        <SectionTitle title='Project name' name={name} />
+      </div>
+      <div class='col-span-3 flex flex-col gap-8'>
+        <div class='flex flex-col gap-2'>
+          <AccentTitle title='Project goal' />
+          <div class='flex flex-col gap-6 text-sm text-secondary leading-7'>
+            {goals.map((goal) => <p>{goal}</p>)}
+          </div>
+        </div>
+        <div class='flex flex-col gap-2'>
+          <AccentTitle title='Role & duration' />
+          <div class='text-sm text-secondary'>{role}</div>
+        </div>
+      </div>
+    </div>
+  </SectionContent>
+
+  <!-- Research study details -->
+  <SectionContent>
+    <SectionTitle title='Research study details' name='Research outcomes' />
+    <div class='text-sm text-secondary leading-7 flex flex-col'>
+      <slot name='research' />
+    </div>
+    <div class='text-sm text-secondary'>Persona:</div>
+    <img src={`/images/personas/${persona}.png`} alt={`Persona: ${persona}`} />
+    {
+      !!userJourney && (
+        <>
+          <div class='text-sm text-secondary'>User Journey Map:</div>
+          <img src={`/images/user-journeys/${userJourney}.png`} alt={`User Journey: ${userJourney}`} />
+        </>
+      )
+    }
+  </SectionContent>
+
+  <!-- Initial design concepts -->
+  <SectionContent>
+    <SectionTitle title='Initial design concepts' name='Wireframing and prototyping' />
+    <div class='text-sm text-secondary'>
+      To outline all the necessary functionality, I created a simple flow diagram that shows the main tasks the user can
+      do. It gives a better understanding of the user experience architecture behind the product.
+    </div>
+    <img src={`/images/user-flows/${wireframe.diagram}.png`} alt={`${title} User flow`} />
+    <div class='text-sm text-secondary'>
+      {wireframe.mockups.lofi.subtitle}
+    </div>
+    <div class='flex justify-center'>
+      <iframe
+        class='border-black border-opacity-10 lg:w-[960px] w-full h-[430px]'
+        src={wireframe.mockups.lofi.iframe}
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+    <div class='text-sm text-secondary'>
+      {wireframe.mockups.hifi.subtitle}
+    </div>
+    <div class='flex justify-center'>
+      <iframe
+        class='border-black border-opacity-10 lg:w-[960px] w-full h-[430px]'
+        src={wireframe.mockups.hifi.iframe}
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+  </SectionContent>
+
+  <!-- Test phase -->
+  <SectionContent>
+    <SectionTitle title='Test phase' name='Usability testing' />
+    <div class='flex flex-col gap-6 text-sm text-secondary leading-7'>
+      {usability.texts.map((text) => <p>{text}</p>)}
+    </div>
+    <div class='flex justify-center'>
+      <iframe
+        class='border-black border-opacity-10 lg:w-[960px] w-full h-[430px]'
+        src={usability.iframe}
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+  </SectionContent>
+
+  <!-- Takeaways -->
+  <SectionContent>
+    <SectionTitle title='Takeaways' name='Conclusion' />
+    <div class='flex flex-col gap-6 text-sm text-secondary leading-7'>
+      {conclusions.map((conclusion) => <p>{conclusion}</p>)}
+    </div>
+  </SectionContent>
+
+  <!-- Ending -->
+  <SectionContent>
+    <div class='text-sm text-secondary'>
+      --
+      <div>And that's a wrap! Thank you for reading this far. ♡</div>
+    </div>
+  </SectionContent>
+
+  <Footer />
+</Base>
