@@ -6,6 +6,7 @@ import SectionContent from './SectionContent.astro';
 
 type Wireframe = {
   diagram: string;
+  description: string;
   mockups: {
     lofi: Mockup;
     hifi: Mockup;
@@ -84,8 +85,7 @@ const { title, banner, name, goals, role, persona, userJourney, wireframe, usabi
   <SectionContent>
     <SectionTitle title='Initial design concepts' name='Wireframing and prototyping' />
     <div class='text-sm text-secondary'>
-      To outline all the necessary functionality, I created a simple flow diagram that shows the main tasks the user can
-      do. It gives a better understanding of the user experience architecture behind the product.
+      {wireframe.description}
     </div>
     <img src={`/images/user-flows/${wireframe.diagram}.png`} alt={`${title} User flow`} />
     <div class='text-sm text-secondary'>
