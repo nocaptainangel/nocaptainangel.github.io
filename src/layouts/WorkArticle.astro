@@ -5,8 +5,8 @@ import Base from './Base.astro';
 import SectionContent from './SectionContent.astro';
 
 type Wireframe = {
-  diagram: string;
-  description: string;
+  diagram?: string;
+  description?: string;
   mockups: {
     lofi?: Mockup;
     hifi?: Mockup;
@@ -86,10 +86,8 @@ const { title, banner, name, goals, role, persona, userJourney, wireframe, usabi
   <!-- Initial design concepts -->
   <SectionContent>
     <SectionTitle title='Initial design concepts' name='Wireframing and prototyping' />
-    <div class='text-sm text-secondary'>
-      {wireframe.description}
-    </div>
-    <img src={`/images/user-flows/${wireframe.diagram}.png`} alt={`${title} User flow`} />
+    {!!wireframe.description && <div class='text-sm text-secondary'>{wireframe.description}</div>}
+    {!!wireframe.diagram && <img src={`/images/user-flows/${wireframe.diagram}.png`} alt={`${title} User flow`} />}
     {!!wireframe.mockups.lofi?.subtitle && <div class='text-sm text-secondary'>{wireframe.mockups.lofi.subtitle}</div>}
     <div class='flex justify-center'>
       {
