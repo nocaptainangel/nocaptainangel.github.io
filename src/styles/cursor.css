@@ -1,0 +1,7 @@
+#dot {
+  @apply absolute pointer-events-none w-3 h-3 bg-cursor rounded-half z-[9000];
+}
+
+#circle {
+  @apply absolute pointer-events-none w-16 h-16 border border-cursor rounded-half z-[9000];
+}

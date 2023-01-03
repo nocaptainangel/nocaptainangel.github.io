@@ -1,4 +1,5 @@
 ---
+import '../styles/cursor.css';
 import '../styles/global.css';
 
 export interface Props {
@@ -51,8 +52,8 @@ const { title, className } = Astro.props;
     }
 
     const speed = 6;
-    let endX = 0;
-    let endY = 0;
+    let endX = -128;
+    let endY = -128;
     let x = 0;
     let y = 0;
 
@@ -60,10 +61,7 @@ const { title, className } = Astro.props;
       endX = event.pageX;
       endY = event.pageY;
 
-      if (dot) {
-        dot.style.top = endY - 6 + 'px';
-        dot.style.left = endX - 6 + 'px';
-      }
+      moveDot(endY - 6, endX - 6);
     };
 
     function animateCircle() {
@@ -72,12 +70,26 @@ const { title, className } = Astro.props;
       x += (endX - x) / speed;
       y += (endY - y) / speed;
 
-      if (circle) {
-        circle.style.top = y - 32 + 'px';
-        circle.style.left = x - 32 + 'px';
-      }
+      moveCircle(y - 32, x - 32);
+    }
+
+    function moveDot(top: number, left: number) {
+      if (!dot) return;
+
+      dot.style.top = `${top}px`;
+      dot.style.left = `${left}px`;
+    }
+
+    function moveCircle(top: number, left: number) {
+      if (!circle) return;
+
+      circle.style.top = `${top}px`;
+      circle.style.left = `${left}px`;
     }
 
     animateCircle();
+
+    moveDot(-64, -64);
+    moveCircle(-128, -128);
   })();
 </script>

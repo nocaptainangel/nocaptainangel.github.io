@@ -47,11 +47,3 @@
     @apply list-decimal pl-8;
   }
 }
-
-#dot {
-  @apply absolute pointer-events-none w-3 h-3 bg-cursor rounded-half;
-}
-
-#circle {
-  @apply absolute pointer-events-none w-16 h-16 border border-cursor rounded-half;
-}
