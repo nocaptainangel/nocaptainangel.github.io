@@ -61,7 +61,7 @@ const { title, className } = Astro.props;
       endX = event.pageX;
       endY = event.pageY;
 
-      moveDot(endY - 6, endX - 6);
+      move(dot, endY - 6, endX - 6);
     };
 
     function animateCircle() {
@@ -70,26 +70,19 @@ const { title, className } = Astro.props;
       x += (endX - x) / speed;
       y += (endY - y) / speed;
 
-      moveCircle(y - 32, x - 32);
+      move(circle, y - 32, x - 32);
     }
 
-    function moveDot(top: number, left: number) {
-      if (!dot) return;
+    function move(element: HTMLElement | null, top: number, left: number) {
+      if (!element) return;
 
-      dot.style.top = `${top}px`;
-      dot.style.left = `${left}px`;
-    }
-
-    function moveCircle(top: number, left: number) {
-      if (!circle) return;
-
-      circle.style.top = `${top}px`;
-      circle.style.left = `${left}px`;
+      element.style.top = `${top}px`;
+      element.style.left = `${left}px`;
     }
 
     animateCircle();
 
-    moveDot(-64, -64);
-    moveCircle(-128, -128);
+    move(dot, -64, -64);
+    move(circle, -128, -128);
   })();
 </script>
