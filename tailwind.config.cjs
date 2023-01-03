@@ -13,6 +13,7 @@ module.exports = {
         secondary: 'gray',
         tertiary: '#cfc7c7',
         accent: '#71bef9',
+        cursor: '#685C5C',
         error: 'red',
       },
       fontFamily: {
@@ -24,6 +25,9 @@ module.exports = {
       transitionProperty: {
         top: 'top',
         height: 'height',
+      },
+      borderRadius: {
+        half: '50%',
       },
     },
   },

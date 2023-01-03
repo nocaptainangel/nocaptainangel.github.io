@@ -27,5 +27,5 @@ body.loading {
 }
 
 .rounded-wrap {
-  @apply bg-black rounded-[50%] block h-full -left-1/2 absolute transition-height duration-700 ease-in-out w-[200%] z-[9997];
+  @apply bg-black rounded-half block h-full -left-1/2 absolute transition-height duration-700 ease-in-out w-[200%] z-[9997];
 }
