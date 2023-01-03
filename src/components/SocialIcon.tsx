@@ -24,6 +24,10 @@ export const MediumIcon = (props: IconProps) => {
   return <SocialIcon {...props} icon='medium' url='https://medium.com/@leijendekkerangel' />;
 };
 
+export const GitHubIcon = (props: IconProps) => {
+  return <SocialIcon {...props} icon='github' url='https://github.com/nocaptainangel' />;
+};
+
 export const SocialIcon = (props: SocialIconProps) => {
   const className = props.className ?? 'h-4 w-4';
   const color = props.isLight ? 'white' : 'black';

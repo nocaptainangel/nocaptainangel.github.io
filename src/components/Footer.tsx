@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { BehanceIcon, InstagramIcon, LinkedInIcon, MediumIcon } from '../components/SocialIcon';
+import { BehanceIcon, GitHubIcon, InstagramIcon, LinkedInIcon } from '../components/SocialIcon';
 
 type SocialProps = {
   tagline: string;
@@ -25,7 +25,7 @@ const Footer = () => {
           <Social tagline='View on' name='Behance' icon={<BehanceIcon className='h-6 w-6' isLight={true} />} />
           <Social tagline='Heart on' name='Instagram' icon={<InstagramIcon className='h-6 w-6' isLight={true} />} />
           <Social tagline='Connect' name='LinkedIn' icon={<LinkedInIcon className='h-6 w-6' isLight={true} />} />
-          <Social tagline='View on' name='Medium' icon={<MediumIcon className='h-6 w-6' isLight={true} />} />
+          <Social tagline='Follow on' name='GitHub' icon={<GitHubIcon className='h-6 w-6' isLight={true} />} />
         </div>
 
         <hr className='w-full border-t-secondary border-t h-0' />
