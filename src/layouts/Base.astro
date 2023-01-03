@@ -22,3 +22,9 @@ const { title, className } = Astro.props;
     <slot />
   </body>
 </html>
+
+<script>
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+</script>
