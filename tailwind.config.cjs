@@ -21,6 +21,10 @@ module.exports = {
       fontSize: {
         '2xs': '0.5em',
       },
+      transitionProperty: {
+        top: 'top',
+        height: 'height',
+      },
     },
   },
   plugins: [],

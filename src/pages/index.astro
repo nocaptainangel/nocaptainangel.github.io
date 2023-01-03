@@ -1,6 +1,7 @@
 ---
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
+import Loader from '../components/Loader';
 import { ScrollDown } from '../components/Scroll';
 import { BehanceIcon, InstagramIcon, LinkedInIcon, MediumIcon } from '../components/SocialIcon';
 import { SectionTag } from '../components/Typography';
@@ -9,7 +10,9 @@ import Base from '../layouts/Base.astro';
 import Section from '../layouts/Section.astro';
 ---
 
-<Base>
+<Base className='loading'>
+  <Loader client:load />
+
   <!-- Banner -->
   <Section className='flex min-h-screen'>
     <div class='hidden sm:w-10 lg:w-28 sm:flex flex-col justify-center items-center gap-6'>

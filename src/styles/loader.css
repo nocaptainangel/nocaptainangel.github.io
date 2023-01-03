@@ -1,0 +1,31 @@
+body.loading {
+  @apply overflow-hidden;
+}
+
+.loading #loader {
+  @apply top-0;
+}
+
+#loader {
+  @apply bg-black flex flex-col justify-center min-h-screen fixed text-center -top-[100vh] transition-top ease-in-out duration-[600ms] w-full z-[9998];
+}
+
+.loading #greeting {
+  @apply opacity-100;
+}
+
+#greeting {
+  @apply text-white text-4xl md:text-6xl opacity-0 transition-opacity duration-500 z-[9999];
+}
+
+#greeting:before {
+  content: '• ';
+}
+
+.loading .rounded-wrap {
+  @apply -bottom-1/2 h-[300%];
+}
+
+.rounded-wrap {
+  @apply bg-black rounded-[50%] block h-full -left-1/2 absolute transition-height duration-700 ease-in-out w-[200%] z-[9997];
+}
