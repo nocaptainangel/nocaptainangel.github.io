@@ -30,8 +30,6 @@ const Loader = () => {
         clearInterval(interval);
 
         document.body.classList.remove('loading');
-
-        return;
       }
     };
 
