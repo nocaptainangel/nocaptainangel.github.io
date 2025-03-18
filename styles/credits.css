@@ -1,0 +1,37 @@
+@reference "tailwindcss";
+
+.scrolling {
+  animation: scrolling 50s linear forwards;
+}
+
+.crew {
+  & > :nth-child(odd) {
+    @apply text-right;
+  }
+
+  & > :nth-child(even) {
+    @apply text-left font-semibold uppercase;
+  }
+}
+
+.label,
+.value {
+  @apply flex items-center text-sm;
+}
+
+.label {
+  @apply text-right;
+}
+
+.value {
+  @apply text-left font-semibold uppercase;
+}
+
+@keyframes scrolling {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}

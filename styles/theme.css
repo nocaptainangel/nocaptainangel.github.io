@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Blur */
+  --blur-work: 40px;
+
+  /* Color */
+  --color-background: #f5f5f5;
+  --color-headline: #3b3b3b;
+  --color-work: #423c3c26;
+  --color-light-gray: #d9d9d9;
+  --color-gray: #685c5c;
+  --color-dark-gray: #202020;
+  --color-light-blue: #71bef9;
+
+  /* Font */
+  --font-montserrat: var(--font-montserrat);
+  --font-tiempos-fine: var(--font-tiempos-fine);
+  --font-tiempos-headline: var(--font-tiempos-headline);
+  --font-wix-medefor-display: var(--font-wix-medefor-display);
+
+  /* Radius */
+  --radius-5xl: 4rem;
+  --radius-half: 50%;
+
+  /* Text */
+  --text-2xs: 0.625rem;
+
+  /* Transition */
+  --default-transition-duration: 300ms;
+  --default-transition-timing-function: theme(ease-out);
+}

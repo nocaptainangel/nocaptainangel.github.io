@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@import "./theme.css";
+
+:root {
+  /* Color */
+  --color-dot: #b6b6b6cc;
+
+  /* Size */
+  --size-dot: 1px;
+
+  /* Spacing */
+  --spacing-dot: 1rem;
+}
+
+.bg-dotted {
+  background: radial-gradient(circle, var(--color-dot) var(--size-dot), transparent var(--size-dot));
+  background-color: theme(--color-background);
+  background-size: var(--spacing-dot) var(--spacing-dot);
+}

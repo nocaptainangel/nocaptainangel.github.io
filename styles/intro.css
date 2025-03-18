@@ -1,0 +1,13 @@
+.line-down {
+  animation: line-down 3s ease-in-out infinite;
+}
+
+@keyframes line-down {
+  0% {
+    top: -50%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}

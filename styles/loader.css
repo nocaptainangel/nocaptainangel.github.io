@@ -1,0 +1,32 @@
+@reference "tailwindcss";
+@reference "./theme.css";
+
+.loading {
+  .loader {
+    @apply top-0;
+  }
+
+  .greeting {
+    @apply opacity-100;
+  }
+
+  .rounded-wrap {
+    @apply -bottom-1/2 h-[300%];
+  }
+}
+
+.loader {
+  @apply fixed -top-[100vh] z-101 flex min-h-screen w-full flex-col justify-center bg-black text-center transition-[top] duration-600 ease-in-out;
+}
+
+.greeting {
+  @apply font-montserrat z-102 text-4xl text-white opacity-0 transition-opacity duration-500 md:text-6xl;
+
+  &::before {
+    content: "• ";
+  }
+}
+
+.rounded-wrap {
+  @apply rounded-half absolute -left-1/2 z-100 block h-full w-[200%] bg-black transition-[height] duration-700 ease-in-out;
+}
