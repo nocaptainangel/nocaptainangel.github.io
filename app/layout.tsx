@@ -3,7 +3,7 @@ import Cursor from "@/components/Cursor";
 import config from "@/config";
 import { CursorProvider } from "@/contexts/CursorProvider";
 import { MenuProvider } from "@/contexts/MenuProvider";
-import { montserrat, tiemposFine, tiemposHeadline, wixMedeforDisplay } from "@/styles/fonts/fonts";
+import { montserrat, tiemposFine, tiemposHeadline, wixMedeforDisplay } from "@/fonts";
 import clsx from "clsx";
 import ReactLenis from "lenis/react";
 import { Metadata, Viewport } from "next";

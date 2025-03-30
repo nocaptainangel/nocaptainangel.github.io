@@ -10,17 +10,17 @@ export const montserrat = Montserrat({
 export const tiemposFine = localFont({
   src: [
     {
-      path: "./TiemposFine/TiemposFine-Regular.otf",
+      path: "./fonts/TiemposFine/TiemposFine-Regular.otf",
       style: "normal",
       weight: "400",
     },
     {
-      path: "./TiemposFine/TiemposFine-RegularItalic.otf",
+      path: "./fonts/TiemposFine/TiemposFine-RegularItalic.otf",
       style: "italic",
       weight: "400",
     },
     {
-      path: "./TiemposFine/TiemposFine-MediumItalic.otf",
+      path: "./fonts/TiemposFine/TiemposFine-MediumItalic.otf",
       style: "italic",
       weight: "500",
     },
@@ -31,7 +31,7 @@ export const tiemposFine = localFont({
 export const tiemposHeadline = localFont({
   src: [
     {
-      path: "./TiemposHeadline/TiemposHeadline-SemiboldItalic.otf",
+      path: "./fonts/TiemposHeadline/TiemposHeadline-SemiboldItalic.otf",
       style: "italic",
       weight: "600",
     },
