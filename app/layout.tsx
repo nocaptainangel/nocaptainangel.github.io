@@ -3,7 +3,19 @@ import Cursor from "@/components/Cursor";
 import config from "@/config";
 import { CursorProvider } from "@/contexts/CursorProvider";
 import { MenuProvider } from "@/contexts/MenuProvider";
-import { montserrat, tiemposFine, tiemposHeadline, wixMedeforDisplay } from "@/fonts";
+import {
+  agbalumo,
+  barrio,
+  exile,
+  manufacturingConsent,
+  montserrat,
+  pixelifySans,
+  rubikBubbles,
+  sarina,
+  tiemposFine,
+  tiemposHeadline,
+  wixMedeforDisplay,
+} from "@/fonts";
 import clsx from "clsx";
 import ReactLenis from "lenis/react";
 import { Metadata, Viewport } from "next";
@@ -35,6 +47,13 @@ export default function RootLayout(props: Props) {
             tiemposFine.variable,
             tiemposHeadline.variable,
             wixMedeforDisplay.variable,
+            barrio.variable,
+            sarina.variable,
+            rubikBubbles.variable,
+            pixelifySans.variable,
+            exile.variable,
+            agbalumo.variable,
+            manufacturingConsent.variable,
           )}
           data-lenis-prevent
         >

@@ -38,7 +38,7 @@ const works: Work[] = [
     name: "Evenz",
     description: "Evenz is a leading ticket seller that uses a location-based map to show you nearby events.",
     image: "/images/works/evenz.webp",
-    url: "https://v2.dev.evenz.com",
+    url: "https://dev.evenz.com/v2",
   },
   {
     name: "H2P",

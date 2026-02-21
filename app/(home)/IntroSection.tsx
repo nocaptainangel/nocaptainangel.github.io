@@ -1,31 +1,210 @@
-import memoji from "@/public/images/memoji.webp";
+"use client";
+
+import art1 from "@/public/images/art/art 1.png";
+import art2 from "@/public/images/art/art 2.png";
+import art3 from "@/public/images/art/art 3.png";
+import art4 from "@/public/images/art/art 4.png";
+import art5 from "@/public/images/art/art 5.png";
+import art6 from "@/public/images/art/art 6.png";
+import art7 from "@/public/images/art/art 7.png";
+import art8 from "@/public/images/art/art 8.png";
+import art9 from "@/public/images/art/art 9.png";
 import "@/styles/intro.css";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
+
+const FONTS = [
+  "var(--font-barrio)",
+  "var(--font-sarina)",
+  "var(--font-rubik-bubbles)",
+  "var(--font-pixelify-sans)",
+  "var(--font-exile)",
+  "var(--font-agbalumo)",
+  "var(--font-manufacturing-consent)",
+] as const;
+const LETTERS = ["A", "N", "G", "E", "L"] as const;
+const ARTS = [
+  { src: art1, alt: "Art 1" },
+  { src: art2, alt: "Art 2" },
+  { src: art3, alt: "Art 3" },
+  { src: art4, alt: "Art 4" },
+  { src: art5, alt: "Art 5" },
+  { src: art6, alt: "Art 6" },
+  { src: art7, alt: "Art 7" },
+  { src: art8, alt: "Art 8" },
+  { src: art9, alt: "Art 9" },
+] as const;
 
 export default function IntroSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const letterRefs = useRef<Array<HTMLSpanElement | null>>([]);
+  const marqueeRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    letterRefs.current.forEach((elOrNull) => {
+      if (!elOrNull) {
+        return;
+      }
+
+      const el = elOrNull;
+
+      // Set a random initial font immediately.
+      let current = FONTS[Math.floor(Math.random() * FONTS.length)];
+      el.style.fontFamily = current;
+
+      function scheduleNext() {
+        if (cancelled) {
+          return;
+        }
+
+        // 1–2 second interval, random per letter.
+        const delay = 1000 + Math.random() * 1000;
+        setTimeout(() => {
+          if (cancelled) {
+            return;
+          }
+
+          const options = FONTS.filter((f) => f !== current);
+          current = options[Math.floor(Math.random() * options.length)];
+          el.style.fontFamily = current;
+          scheduleNext();
+        }, delay);
+      }
+
+      // Stagger start: each letter begins its cycle at a random offset (0–2 s).
+      const initialDelay = Math.random() * 2000;
+      setTimeout(() => {
+        if (cancelled) {
+          return;
+        }
+
+        const options = FONTS.filter((f) => f !== current);
+        current = options[Math.floor(Math.random() * options.length)];
+        el.style.fontFamily = current;
+        scheduleNext();
+      }, initialDelay);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // Start marquee only after the Loader removes the `loading` class from <main>.
+  // RAF-based instead of CSS animation — avoids Safari's compositor flicker at loop reset.
+  useEffect(() => {
+    const main = document.querySelector("main");
+    if (!main || !marqueeRef.current) {
+      return;
+    }
+
+    const track = marqueeRef.current;
+
+    // ~80 px/s matches the previous 20 s CSS animation for 8 images × 203 px.
+    const SPEED = 80;
+    let position = 0;
+    let lastTime: number | null = null;
+    let rafId: number;
+
+    function tick(time: number) {
+      if (lastTime !== null) {
+        position -= (SPEED * (time - lastTime)) / 1000;
+        const halfWidth = track.scrollWidth / 2;
+
+        if (position <= -halfWidth) {
+          position += halfWidth;
+        }
+
+        track.style.transform = `translateX(${position}px)`;
+      }
+      lastTime = time;
+      rafId = requestAnimationFrame(tick);
+    }
+
+    function start() {
+      rafId = requestAnimationFrame(tick);
+    }
+
+    if (!main.classList.contains("loading")) {
+      start();
+      return () => cancelAnimationFrame(rafId);
+    }
+
+    const observer = new MutationObserver(() => {
+      if (!main.classList.contains("loading")) {
+        observer.disconnect();
+        start();
+      }
+    });
+
+    observer.observe(main, { attributes: true, attributeFilter: ["class"] });
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
+
   return (
-    <section
-      id="intro"
-      className="font-montserrat text-headline relative flex h-svh flex-col justify-center text-center text-lg leading-snug font-bold sm:text-3xl md:text-4xl lg:text-5xl"
-    >
-      <div className="relative mx-auto flex flex-col justify-center gap-6 sm:flex-row-reverse sm:gap-2">
-        <div className="relative w-28 self-center sm:w-16 md:w-22">
-          <Image
-            className="h-auto max-w-full -rotate-12 sm:absolute sm:-bottom-8 sm:left-0 md:-bottom-10 lg:-bottom-12 lg:w-28"
-            src={memoji}
-            alt="Memoji Picture"
-          />
+    <section id="intro" className="relative h-svh overflow-hidden" ref={sectionRef}>
+      {/* ── ANGEL letters ─────────────────────────────────────────── */}
+      <div className="pointer-events-none absolute inset-0">
+        {LETTERS.map((char, i) => (
+          <span
+            key={char}
+            ref={(el) => {
+              letterRefs.current[i] = el;
+            }}
+            className={`angel-letter angel-letter-${char.toLowerCase()}`}
+          >
+            {char}
+          </span>
+        ))}
+      </div>
+
+      {/* ── Right: bio + portfolio images ─────────────────────────── */}
+      <div className="absolute top-1/2 right-0 flex w-[42%] -translate-y-1/2 flex-col gap-5 pl-4">
+        <p className="font-montserrat text-headline pr-8 text-[13px] leading-relaxed font-semibold md:pr-14 lg:pr-28">
+          Hi, I&apos;m Angel Leijendekker — a Netherlands-based product builder with a background in UX design and
+          front-end development. I turn user insights into thoughtful digital experiences that balance people,
+          technology, and business needs.
+        </p>
+
+        {/* Marquee: clipped by the overflow-hidden wrapper */}
+        <div className="overflow-hidden">
+          <div className="marquee-track" ref={marqueeRef}>
+            {/* Set 1 — pr-3 adds the trailing gap so both sets are equal width */}
+            <div className="flex gap-3 pr-3">
+              {ARTS.map((art) => (
+                <Image
+                  key={art.alt}
+                  className="aspect-square w-[191px] shrink-0 rounded-lg object-cover"
+                  src={art.src}
+                  alt={art.alt}
+                  width={191}
+                  height={191}
+                />
+              ))}
+            </div>
+            {/* Set 2 — duplicate for seamless loop */}
+            <div className="flex gap-3 pr-3" aria-hidden="true">
+              {ARTS.map((art) => (
+                <Image
+                  key={art.alt}
+                  className="aspect-square w-[191px] shrink-0 rounded-lg object-cover"
+                  src={art.src}
+                  alt={art.alt}
+                  width={191}
+                  height={191}
+                />
+              ))}
+            </div>
+          </div>
         </div>
-        <div>
-          ✨ User Experience <span className="font-tiempos-headline font-semibold italic">Designer</span>
-        </div>
       </div>
-      <div>
-        with <span className="font-tiempos-headline font-semibold italic">human - centered</span> 🧡 approach
-      </div>
-      <div>
-        based in the <span className="font-tiempos-headline font-semibold italic">Philippines</span>.
-      </div>
+
+      {/* ── View My Works indicator ────────────────────────────────── */}
       <span className="text-2xs absolute bottom-0 left-[50%] flex h-20 -translate-x-[50%] flex-col items-center gap-3 px-3 pt-2 font-medium text-black uppercase md:h-28">
         <span>View My Works</span>
         <span className="bg-light-gray relative w-px grow overflow-hidden">

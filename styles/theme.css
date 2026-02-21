@@ -20,6 +20,12 @@
   --font-tiempos-fine: var(--font-tiempos-fine);
   --font-tiempos-headline: var(--font-tiempos-headline);
   --font-wix-medefor-display: var(--font-wix-medefor-display);
+  --font-barrio: var(--font-barrio);
+  --font-sarina: var(--font-sarina);
+  --font-rubik-bubbles: var(--font-rubik-bubbles);
+  --font-pixelify-sans: var(--font-pixelify-sans);
+  --font-exile: var(--font-exile);
+  --font-agbalumo: var(--font-agbalumo);
 
   /* Radius */
   --radius-5xl: 4rem;

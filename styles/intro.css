@@ -1,3 +1,9 @@
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
 .line-down {
   animation: line-down 3s ease-in-out infinite;
 }
@@ -10,4 +16,48 @@
   100% {
     top: 100%;
   }
+}
+
+/* ANGEL letter base styles.
+   Positions derived from Figma canvas (1280×701).
+   left/top are percentages of those canvas dimensions. */
+.angel-letter {
+  position: absolute;
+  font-size: clamp(60px, 15.6vw, 220px);
+  line-height: 1;
+  display: block;
+}
+
+.angel-letter-a {
+  left: 2.27%;
+  top: 53.64%;
+  color: #e0171e;
+}
+
+.angel-letter-n {
+  left: 15.6%;
+  top: 39.37%;
+  color: #ff832d;
+  transform: rotate(29.6deg);
+}
+
+.angel-letter-g {
+  left: 14.83%;
+  top: 66.37%;
+  color: #ff832d;
+  transform: rotate(-47.15deg);
+}
+
+.angel-letter-e {
+  left: 30.72%;
+  top: 49.93%;
+  color: #ff832d;
+  font-size: clamp(54px, 14vw, 197px);
+}
+
+.angel-letter-l {
+  left: 32.17%;
+  top: 70.53%;
+  color: #e0171e;
+  transform: rotate(-55.61deg);
 }
