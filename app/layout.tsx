@@ -30,6 +30,7 @@ export const viewport: Viewport = {
   initialScale: 1.0,
   themeColor: "#000000",
   width: "device-width",
+  colorScheme: "only light",
 };
 
 type Props = {
