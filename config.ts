@@ -1,7 +1,7 @@
 const config = {
   title: "Angel",
   description: "If you adore her, Dior her.",
-  email: "hello@uxangel.design",
+  email: "hello@angellei.com",
   url: {
     work: {
       aegyo: "/works/aegyo",
