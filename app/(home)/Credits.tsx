@@ -44,7 +44,7 @@ export default function Credits() {
         <article className="crew grid grid-cols-2 gap-x-6 gap-y-2 text-xs">
           <div>Product Thinker</div>
           <div>Angel Leijendekker</div>
-          <div>Associate Product manager (in progress)</div>
+          <div>Associate Product Manager (in progress)</div>
           <div>Angel Leijendekker</div>
           <div>User Advocate</div>
           <div>Angel Leijendekker</div>
