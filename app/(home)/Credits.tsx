@@ -36,35 +36,35 @@ export default function Credits() {
       className="font-montserrat relative h-[30vh] overflow-hidden bg-black text-white"
       ref={containerRef}
     >
-      <div className="absolute bottom-0 flex w-full [transform:translateY(100%)] flex-col gap-12" ref={creditsRef}>
+      <div className="absolute bottom-0 flex w-full transform-[translateY(100%)] flex-col gap-12" ref={creditsRef}>
         <div className="flex flex-col gap-4 text-center">
           <div className="text-xs">A website by</div>
           <div className="text-lg font-semibold tracking-widest uppercase">Angel Leijendekker</div>
         </div>
         <article className="crew grid grid-cols-2 gap-x-6 gap-y-2 text-xs">
-          <div>Unit Production Manager</div>
+          <div>Product Thinker</div>
           <div>Angel Leijendekker</div>
-          <div>First Assistant Director</div>
+          <div>Associate Product manager (in progress)</div>
+          <div>Angel Leijendekker</div>
+          <div>User Advocate</div>
+          <div>Angel Leijendekker</div>
+          <div>Problem Framer</div>
           <div>Angel Leijendekker</div>
           <div>UX Designer</div>
           <div>Angel Leijendekker</div>
-          <div>UI Designer</div>
+          <div>Product Researcher</div>
           <div>Angel Leijendekker</div>
-          <div>UX Researcher</div>
+          <div>Prototype Builder</div>
           <div>Angel Leijendekker</div>
-          <div>Graphic Designer</div>
+          <div>Frontend Developer</div>
           <div>Angel Leijendekker</div>
-          <div>Colorist</div>
+          <div>Cross-Functional Translator</div>
           <div>Angel Leijendekker</div>
-          <div>Editor</div>
+          <div>Iteration Enthusiast</div>
           <div>Angel Leijendekker</div>
-          <div>Assistant Editor</div>
+          <div>Curiosity Department</div>
           <div>Angel Leijendekker</div>
-          <div>Unit Production Manager</div>
-          <div>Angel Leijendekker</div>
-          <div>End Title Typist</div>
-          <div>Angel Leijendekker</div>
-          <div>Dev</div>
+          <div>Dev Support</div>
           <div>Jonathan Leijendekker</div>
         </article>
         <div className="flex flex-col gap-4 text-center">
@@ -76,6 +76,15 @@ export default function Credits() {
             <div>Codepen.io</div>
             <div>Giphy</div>
             <div>Starbucks Venti Iced White Mocha</div>
+            <div>Post-it Notes Everywhere</div>
+            <div>Iteration 42</div>
+            <div>Miro</div>
+            <div>Random Sketchbooks</div>
+            <div>Feedback Loops</div>
+            <div>Prototype Experiments</div>
+            <div>Late-night Brainstorms</div>
+            <div>Bug Hunting Expeditions</div>
+            <div>Decision-making Committee (just me)</div>
           </article>
         </div>
         <div className="flex justify-center py-32">
