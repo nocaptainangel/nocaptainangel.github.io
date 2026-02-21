@@ -23,41 +23,101 @@
    left/top are percentages of those canvas dimensions. */
 .angel-letter {
   position: absolute;
-  font-size: clamp(60px, 15.6vw, 220px);
+  font-size: 8em;
   line-height: 1;
   display: block;
 }
 
 .angel-letter-a {
-  left: 2.27%;
-  top: 53.64%;
+  left: 4.27vw;
+  top: 70.64vh;
   color: #e0171e;
 }
 
 .angel-letter-n {
-  left: 15.6%;
-  top: 39.37%;
+  left: 30.27vw;
+  top: 60.64vh;
   color: #ff832d;
   transform: rotate(29.6deg);
 }
 
 .angel-letter-g {
-  left: 14.83%;
-  top: 66.37%;
+  left: 38.27vw;
+  top: 76.64vh;
   color: #ff832d;
   transform: rotate(-47.15deg);
 }
 
 .angel-letter-e {
-  left: 30.72%;
-  top: 49.93%;
+  left: 65.27vw;
+  top: 63.64vh;
   color: #ff832d;
-  font-size: clamp(54px, 14vw, 197px);
+  font-size: 7em;
 }
 
 .angel-letter-l {
-  left: 32.17%;
-  top: 70.53%;
+  left: 70.27vw;
+  top: 76.64vh;
   color: #e0171e;
   transform: rotate(-55.61deg);
+}
+
+@media (width >= 64rem) {
+  .angel-letter {
+    font-size: 9em;
+  }
+
+  .angel-letter-a {
+    left: 2.27vw;
+  }
+
+  .angel-letter-n {
+    left: 14.27vw;
+    top: 55.21vh;
+  }
+
+  .angel-letter-g {
+    left: 18.27vw;
+    top: 81.62vh;
+  }
+
+  .angel-letter-e {
+    left: 30.27vw;
+  }
+
+  .angel-letter-l {
+    left: 37.27vw;
+  }
+
+  .angel-letter-e {
+    font-size: 8em;
+  }
+}
+
+@media (width >= 80rem) {
+  .angel-letter {
+    font-size: 12em;
+  }
+
+  .angel-letter-a {
+    top: 64vh;
+  }
+
+  .angel-letter-n {
+    left: 16.27vw;
+    top: 53.21vh;
+  }
+
+  .angel-letter-g {
+    top: 80.62vh;
+  }
+
+  .angel-letter-e {
+    left: 29.27vw;
+    font-size: 10em;
+  }
+
+  .angel-letter-l {
+    left: 35.27vw;
+  }
 }

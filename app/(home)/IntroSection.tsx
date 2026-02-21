@@ -148,6 +148,48 @@ export default function IntroSection() {
 
   return (
     <section id="intro" className="relative h-svh overflow-hidden" ref={sectionRef}>
+      {/* ── Right: bio + portfolio images ─────────────────────────── */}
+      {/* Mobile: full-width at top. md+: 42%-wide vertically centered on right */}
+      <div className="absolute top-0 flex h-full w-full flex-col content-center justify-center gap-4 pb-40 lg:right-0 lg:w-1/2 lg:pt-30 lg:pb-0">
+        <p className="font-montserrat text-headline px-6 text-[13px] leading-relaxed font-semibold md:pr-8 lg:pr-28 lg:pl-0">
+          Hi, I&apos;m Angel Leijendekker — a Netherlands-based product builder with a background in UX design and
+          front-end development. I turn user insights into thoughtful digital experiences that balance people,
+          technology, and business needs.
+        </p>
+
+        {/* Marquee: clipped by the overflow-hidden wrapper */}
+        <div className="overflow-hidden">
+          <div className="marquee-track" ref={marqueeRef}>
+            {/* Set 1 — pr matches gap so both sets are equal width */}
+            <div className="flex gap-2 pr-2 md:gap-3 md:pr-3">
+              {ARTS.map((art) => (
+                <Image
+                  key={art.alt}
+                  className="aspect-square w-35 shrink-0 rounded-lg object-cover md:w-48"
+                  src={art.src}
+                  alt={art.alt}
+                  width={191}
+                  height={191}
+                />
+              ))}
+            </div>
+            {/* Set 2 — duplicate for seamless loop */}
+            <div className="flex gap-2 pr-2 md:gap-3 md:pr-3" aria-hidden="true">
+              {ARTS.map((art) => (
+                <Image
+                  key={art.alt}
+                  className="aspect-square w-35 shrink-0 rounded-lg object-cover md:w-48"
+                  src={art.src}
+                  alt={art.alt}
+                  width={191}
+                  height={191}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* ── ANGEL letters ─────────────────────────────────────────── */}
       <div className="pointer-events-none absolute inset-0">
         {LETTERS.map((char, i) => (
@@ -163,52 +205,11 @@ export default function IntroSection() {
         ))}
       </div>
 
-      {/* ── Right: bio + portfolio images ─────────────────────────── */}
-      <div className="absolute top-1/2 right-0 flex w-[42%] -translate-y-1/2 flex-col gap-5 pl-4">
-        <p className="font-montserrat text-headline pr-8 text-[13px] leading-relaxed font-semibold md:pr-14 lg:pr-28">
-          Hi, I&apos;m Angel Leijendekker — a Netherlands-based product builder with a background in UX design and
-          front-end development. I turn user insights into thoughtful digital experiences that balance people,
-          technology, and business needs.
-        </p>
-
-        {/* Marquee: clipped by the overflow-hidden wrapper */}
-        <div className="overflow-hidden">
-          <div className="marquee-track" ref={marqueeRef}>
-            {/* Set 1 — pr-3 adds the trailing gap so both sets are equal width */}
-            <div className="flex gap-3 pr-3">
-              {ARTS.map((art) => (
-                <Image
-                  key={art.alt}
-                  className="aspect-square w-[191px] shrink-0 rounded-lg object-cover"
-                  src={art.src}
-                  alt={art.alt}
-                  width={191}
-                  height={191}
-                />
-              ))}
-            </div>
-            {/* Set 2 — duplicate for seamless loop */}
-            <div className="flex gap-3 pr-3" aria-hidden="true">
-              {ARTS.map((art) => (
-                <Image
-                  key={art.alt}
-                  className="aspect-square w-[191px] shrink-0 rounded-lg object-cover"
-                  src={art.src}
-                  alt={art.alt}
-                  width={191}
-                  height={191}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* ── View My Works indicator ────────────────────────────────── */}
-      <span className="text-2xs absolute bottom-0 left-[50%] flex h-20 -translate-x-[50%] flex-col items-center gap-3 px-3 pt-2 font-medium text-black uppercase md:h-28">
+      <span className="text-2xs absolute bottom-0 left-1/2 flex h-20 -translate-x-1/2 flex-col items-center gap-3 px-3 pt-2 font-medium text-black uppercase md:h-28">
         <span>View My Works</span>
         <span className="bg-light-gray relative w-px grow overflow-hidden">
-          <span className="line-down absolute top-0 left-0 h-[50%] w-px bg-black" />
+          <span className="line-down absolute top-0 left-0 h-1/2 w-px bg-black" />
         </span>
       </span>
     </section>
