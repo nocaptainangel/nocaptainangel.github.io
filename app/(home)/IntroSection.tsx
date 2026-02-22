@@ -205,9 +205,9 @@ export default function IntroSection() {
         ))}
       </div>
 
-      {/* ── View Product Case Studies indicator ────────────────────── */}
+      {/* ── View My Works indicator ────────────────────────────────── */}
       <span className="text-2xs absolute bottom-0 left-1/2 flex h-20 -translate-x-1/2 flex-col items-center gap-3 px-3 pt-2 font-medium text-black uppercase md:h-28">
-        <span>View Product Case Studies</span>
+        <span>View My Works</span>
         <span className="bg-light-gray relative w-px grow overflow-hidden">
           <span className="line-down absolute top-0 left-0 h-1/2 w-px bg-black" />
         </span>
