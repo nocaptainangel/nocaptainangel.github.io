@@ -1,14 +1,14 @@
 "use client";
 
-import art1 from "@/public/images/art/art 1.png";
-import art2 from "@/public/images/art/art 2.png";
-import art3 from "@/public/images/art/art 3.png";
-import art4 from "@/public/images/art/art 4.png";
-import art5 from "@/public/images/art/art 5.png";
-import art6 from "@/public/images/art/art 6.png";
-import art7 from "@/public/images/art/art 7.png";
-import art8 from "@/public/images/art/art 8.png";
-import art9 from "@/public/images/art/art 9.png";
+import art1 from "@/public/images/art/art 1.webp";
+import art2 from "@/public/images/art/art 2.webp";
+import art3 from "@/public/images/art/art 3.webp";
+import art4 from "@/public/images/art/art 4.webp";
+import art5 from "@/public/images/art/art 5.webp";
+import art6 from "@/public/images/art/art 6.webp";
+import art7 from "@/public/images/art/art 7.webp";
+import art8 from "@/public/images/art/art 8.webp";
+import art9 from "@/public/images/art/art 9.webp";
 import "@/styles/intro.css";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -153,8 +153,8 @@ export default function IntroSection() {
       <div className="absolute top-0 flex h-full w-full flex-col content-center justify-center gap-4 pb-40 lg:right-0 lg:w-1/2 lg:pt-30 lg:pb-0">
         <p className="font-montserrat text-headline px-6 text-[13px] leading-relaxed font-semibold md:pr-8 lg:pr-28 lg:pl-0">
           Hi, I&apos;m Angel Leijendekker — a Netherlands-based product builder with a background in UX design and
-          front-end development. I turn user insights into thoughtful digital experiences that balance people,
-          technology, and business needs.
+          front-end development. I turn user insights into meaningful digital experiences where design, technology, and
+          product thinking meet.
         </p>
 
         {/* Marquee: clipped by the overflow-hidden wrapper */}

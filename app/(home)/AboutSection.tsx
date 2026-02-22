@@ -174,7 +174,7 @@ export default function AboutSection() {
           <Heart /> Iteration
         </span>
       </div>
-      <div className="z-20 w-full" ref={aboutRef}>
+      <div className="z-20 mx-auto w-full xl:max-w-420" ref={aboutRef}>
         <div className="flex h-screen flex-col justify-center p-8 md:p-12 lg:p-28">
           <div className="flex w-full flex-col gap-8 rounded-2xl bg-black p-10 sm:w-xs md:w-sm md:rounded-3xl md:p-14">
             <div className="relative">
@@ -213,9 +213,9 @@ export default function AboutSection() {
                 </div>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative flex self-center">
               <Image
-                className="aspect-square w-6xl rounded-2xl object-cover sm:aspect-3/4 sm:w-xl md:w-4xl md:rounded-3xl"
+                className="aspect-square w-6xl rounded-2xl object-cover sm:aspect-3/4 sm:w-xl md:w-7xl md:rounded-3xl"
                 src={profilePicture}
                 alt="Profile Picture"
                 priority

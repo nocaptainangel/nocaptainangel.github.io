@@ -28,7 +28,7 @@ export default function Footer(props: FooterSectionProps) {
           </Link>
         </div>
         <div className="text-light-gray font-montserrat flex justify-between gap-8 text-xs opacity-70">
-          <span>© Angel Leijendekker 2025</span>
+          <span>© Angel Leijendekker 2026</span>
           <Link className="cursor-pointer" href="#" onClick={() => lenis?.scrollTo(0)}>
             Back to top ↑
           </Link>
