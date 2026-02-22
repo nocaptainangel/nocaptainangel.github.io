@@ -36,31 +36,31 @@ type Work = {
 const works: Work[] = [
   {
     name: "Evenz",
-    description: `A location-based event discovery and ticketing platform that helps users find and book nearby events through an interactive map experience.`,
+    description: `Evenz is a next-generation ticketing company that brings local and international events to your fingertips. With a smart location-based map, users can discover concerts, festivals, and community experiences nearby, and purchase tickets seamlessly — all in one place.<br><br><i>(Web's mobile view is currently in the works)</i>`,
     image: "/images/works/evenz.webp",
     url: "https://dev.evenz.com/v2",
   },
   {
     name: "H2P",
-    description: `A telehealth platform designed to bring healthcare services closer to users via digital tools — including online doctor consultations, emergency support, and medical history access. Users can explore services, connect with providers, and stay informed about health resources.`,
+    description: `H2P is a telehealth web app that connects patients with healthcare providers through a seamless digital platform. Using secure, intuitive, location-based tools, H2P enables users to book appointments, access medical services remotely, and manage their health conveniently from anywhere.`,
     image: "/images/works/h2p.webp",
     url: "https://h2p-web.vercel.app",
   },
   {
     name: "Aegyo",
-    description: "A cafe mobile app for the coffee lovers.",
+    description: `Aegyo is a contemporary café specializing in expertly crafted coffee and beverages, offering a welcoming space to relax and connect. Complementing the in-store experience, Aegyo's app makes it easy to explore the menu, place orders, and stay updated on specials, bringing convenience and quality to every visit.`,
     image: "/images/works/aegyo.webp",
     component: <Aegyo />,
   },
   {
     name: "Fiora",
-    description: "",
+    description: `Fiora is an intuitive web app that makes buying flowers simple and convenient. With a curated selection of fresh blooms, real-time delivery options, and an easy-to-use interface, Fiora helps users find and send the perfect floral arrangements for any occasion.`,
     image: "/images/works/fiora.webp",
     component: <Fiora />,
   },
   {
     name: "Together",
-    description: "",
+    description: `Together is a mobile app that connects volunteers with meaningful opportunities in their communities. With location-based discovery, personalized recommendations, and easy sign-ups, Together makes it simple for users to give back, engage with causes they care about, and make a real impact.`,
     image: "/images/works/together.webp",
     component: <Together />,
   },
@@ -207,7 +207,10 @@ function WorkSticky(props: WorkStickyProps) {
           <ProjectCounter className="hidden lg:block" index={props.index} size={props.size} />
           <div className="flex flex-col gap-4">
             <div className="font-tiempos-fine text-center text-4xl md:text-5xl lg:text-left">{props.work.name}</div>
-            <div className="font-montserrat text-sm font-medium md:text-xl lg:text-sm">{props.work.description}</div>
+            <div
+              className="font-montserrat text-sm font-medium text-shadow-lg md:text-xl lg:text-sm"
+              dangerouslySetInnerHTML={{ __html: props.work.description }}
+            ></div>
           </div>
         </div>
       </div>

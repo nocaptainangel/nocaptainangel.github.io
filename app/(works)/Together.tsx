@@ -9,10 +9,10 @@ export default function Together() {
     <WorkArticle
       title="Together"
       banner={banner}
-      name="Together - Helping your local community through volunteering."
+      name="Together"
       goals={[
-        "Design an app that streamlines volunteering activities and speed up the back and forth communication between volunteers and their local non-profit volunteering programs.",
-        'Together is an app that lets you provide a helping hand to others through volunteering. With "together", you are making a difference in people\'s lives and provides vital help to people in need, worthwhile causes, and the community.',
+        "Design a volunteering platform that makes it easy for users to discover, sign up for, and communicate with local non-profits, streamlining coordination and engagement while maximizing community impact. The app should reduce barriers to volunteering by simplifying scheduling, providing real-time updates, and helping organizations manage their volunteers efficiently.",
+        "Ultimately, Together aims to create a connected community where acts of service are accessible, meaningful, and easy to participate in.",
       ]}
       role="User Research, UI and UX Designer | June - July 2022"
       persona={{ name: "together", image: persona }}
@@ -33,32 +33,32 @@ export default function Together() {
       }}
       usability={{
         texts: [
-          "I tested the prototype to see how user friendly the application is. Testing helps me decide how to refine my mockups based on the feedback that users will provide. Testing also proves whether the potential solution I've been designing addresses the community problem I'm trying to solve.",
-          "I keep on iterating my design until the aesthetic and functionality matches the user's needs.",
+          "I conducted usability testing to evaluate the clarity, ease of use, and overall effectiveness of the Together prototype. Feedback from users informed iterative refinements to the interface, ensuring the app met their needs and effectively addressed the challenges of volunteering coordination.",
+          "I continued iterating until both the functionality and visual design delivered a smooth, intuitive, and meaningful user experience.",
         ],
         iframe: `https://embed.figma.com/design/IPTvkvn601FXYDmddwDAsc/Together-App?node-id=43-473&embed-host=share`,
       }}
       conclusions={[
-        "People genuinely want to make a positive difference in the world, but due to time constraints or resources, they are having a hard time. By having a volunteering app, it's an excellent opportunity to make a difference right at the tip of their fingers.",
-        "Seeing technology being used for something that can make a direct impact on people's lives means a lot to me. Organisations should utilise the potential of social networking to make kindness go viral. If we can create a network where people are addicted to kindness, can you imagine what that would do?",
+        "Designing Together highlighted how technology can remove barriers and make volunteering more accessible for everyone. By simplifying sign-ups, communication, and engagement with local non-profits, the app empowers users to make a meaningful impact on their communities. Iterative research and testing ensured the platform addresses real user needs while supporting organizations in managing volunteers effectively. This project reinforced my belief in building user-centered solutions that create positive, tangible change.",
       ]}
     >
       <div className="flex flex-col gap-4">
         <div>
-          As I did my research on volunteering and volunteering apps, I also conducted an online survey to better
-          understand the users I&apos;m designing for and their needs. I was also able to gain insights and determine
-          the type of gap &quot;Together&quot; can fill.
+          To better understand users and their needs, I conducted research on volunteering behaviors and existing
+          volunteering apps, including an online survey targeting potential volunteers. This research helped identify
+          gaps and opportunities that Together could address.
         </div>
-        <div>Few of the major insights are as follows:</div>
+        <div>Key insights included:</div>
         <ol>
-          <li>Generally, people wants to do good in the world and help make a difference.</li>
+          <li>People are motivated to make a positive difference and contribute to their communities.</li>
           <li>
-            People likes the idea of having a volunteering app which makes them easier to communicate, sign up and
-            interact with their local NGO&apos;s. It saves them time and allows them to apply for a particular cause
-            anytime, anywhere.
+            Users value a platform that simplifies communication, sign-ups, and interaction with local NGOs, allowing
+            them to engage anytime, anywhere.
           </li>
           <li>
-            Volunteering can have a real and valuable positive affect on people, communities and society in general.
+            Volunteering has a tangible, meaningful impact on individuals, communities, and society at large. These
+            insights guided the design of Together, ensuring the app addresses real user needs while facilitating
+            greater community participation.
           </li>
         </ol>
       </div>

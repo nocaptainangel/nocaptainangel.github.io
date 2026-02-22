@@ -12,7 +12,7 @@ export default function Fiora() {
       banner={banner}
       name="Fiora - A Flower Shop Website"
       goals={[
-        "Design a responsive app that provides assistance to customers in purchasing flowers with no person contact due to the pandemic. With immediately enabled click and deliver services, the customers can place an order and process the payment easily.",
+        "Design a responsive e-commerce platform that allows customers to browse, select, and order flowers effortlessly, providing a smooth click-and-deliver experience for users of all ages while supporting floral shop owners in reaching their customers online.",
       ]}
       role="UI Designer | January - February 2022"
       persona={{
@@ -39,24 +39,22 @@ export default function Fiora() {
         iframe: "https://xd.adobe.com/embed/b046814a-bffb-4d88-8923-89913d2c7f18-e515/?fullscreen",
       }}
       conclusions={[
-        "Who doesn't love flowers? I think it's one of the perfect gift or surprise you can give to a love one, to just simply tell them that you remember the special occasion in their lives. Creating Fiora's website, I want the customers to have an easy to navigate feel because flowers are not just for the young. I want the user experience to be smooth as possible with the older generations in mind.",
+        "Fiora's responsive website simplifies flower ordering for customers and shop owners alike, combining intuitive navigation, accessibility, and a seamless click-and-deliver experience. By integrating insights from user research, the platform allows customers of all ages to browse the catalog, customize orders, and complete purchases with ease, while enabling shop owners to showcase products, manage orders efficiently, and reach a wider audience. Iterative testing ensured the experience is smooth, reliable, and tailored to real user needs.",
       ]}
     >
       <div className="flex flex-col gap-4">
         <div>
-          Primary research, such as interviews and usability tests, can be time-consuming, and when timelines are short,
-          secondary research can be a life-saver. Instead of taking the time to narrow down the problem space through
-          primary research, I did a secondary research for “Fiora”. Now it has more refined research question and
-          target, reducing the scope and effort of the study.
+          To quickly understand user needs within a limited timeline, I conducted secondary research for Fiora, refining
+          the research questions and target audience to focus the study. Key insights included:
         </div>
-        <div>Few of the major insights are as follows:</div>
+        <div>Key insights included:</div>
         <ol>
-          <li>Consumers like the idea to place an order at their own convenience.</li>
-          <li>Having a website for floral shops gave the owners the chance to create unique advertising approaches.</li>
+          <li>Customers value the flexibility to place orders at their convenience.</li>
+          <li>A website enables floral shop owners to showcase products and marketing in unique ways.</li>
           <li>
-            Not only can retail and event florists order from the website whenever they want, but they are also able to
-            browse the entire catalog. Because everything is readily available to them, they may order additional items
-            they may not even have come across otherwise.
+            Retail and event florists can browse the full catalog at any time, increasing the likelihood of discovering
+            and ordering additional items. These findings directly informed the design of an intuitive, accessible, and
+            comprehensive ordering experience for both customers and shop owners.
           </li>
         </ol>
       </div>

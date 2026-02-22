@@ -162,14 +162,6 @@ export default function WorkArticle(props: WorkLayoutProps) {
           ))}
         </div>
       </SectionContent>
-
-      {/* Ending */}
-      <SectionContent>
-        <div className="pb-28">
-          --
-          <div>And that&apos;s a wrap! Thank you for reading this far. ♡</div>
-        </div>
-      </SectionContent>
     </article>
   );
 }
