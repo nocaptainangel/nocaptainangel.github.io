@@ -16,7 +16,7 @@
 }
 
 .loader {
-  @apply fixed -top-[100vh] z-101 flex min-h-screen w-full flex-col justify-center bg-black text-center transition-[top] duration-600 ease-in-out;
+  @apply fixed -top-[100vh] z-101 flex min-h-dvh w-full flex-col justify-center bg-black text-center transition-[top] duration-600 ease-in-out;
 }
 
 .greeting {
