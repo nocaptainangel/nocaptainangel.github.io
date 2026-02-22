@@ -12,7 +12,7 @@ export default function Aegyo() {
       banner={banner}
       name="Aegyo - A coffee shop mobile app"
       goals={[
-        "Design an app that provides assistance to customers in purchasing their favorite Aegyo coffee drinks with no in-person contact due to the pandemic. With immediately enabled click and deliver services, the customers can place an order and process the payment easily.",
+        "Design a mobile app that enables customers to order and pay for their favorite coffee drinks without in-person contact, providing a seamless click-and-deliver experience during the pandemic.",
       ]}
       role="User Research, UI Designer | January - March 2022"
       persona={{
@@ -32,12 +32,12 @@ export default function Aegyo() {
       }}
       usability={{
         texts: [
-          "After the visual design was complete, I tested the prototype with seven representative users to see how user friendly the application is. Testing helps me decide how to refine my mockups based on the feedback that users will provide. Testing also proves whether the potential solution I've been designing addresses the community problem I'm trying to solve.",
+          "After completing the visual design, I conducted usability testing with seven representative users to evaluate the clarity and ease of the ordering flow. Insights from testing informed iterative refinements to the interface, ensuring that the app effectively addressed user pain points and delivered a smooth, intuitive experience.",
         ],
         images: [usability],
       }}
       conclusions={[
-        "I personally love coffee and it's very refreshing to design a mobile app for a coffee shop. I learn many things during my usability testing and I'm pretty sure that the learnings I've gained will be applied to my next projects.",
+        "Designing the Aegyo coffee app reinforced the importance of translating user insights into clear, efficient product flows. Iterative testing and refinement improved usability, reduced friction in ordering and payment, and ensured the solution addressed real user needs. The project strengthened my approach to user-centric design and iterative problem solving, lessons I carry forward in all product challenges.",
       ]}
     >
       <div className="flex flex-col gap-4">

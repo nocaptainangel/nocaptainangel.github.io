@@ -10,6 +10,8 @@ type MenuContextProps = {
   setOpen: Dispatch<SetStateAction<boolean>>;
   colorScheme: ColorSchemeEnum;
   setColorScheme: Dispatch<SetStateAction<ColorSchemeEnum>>;
+  isHidden: boolean;
+  setHidden: Dispatch<SetStateAction<boolean>>;
   buttonRef: RefObject<HTMLButtonElement | null>;
 };
 
@@ -20,6 +22,7 @@ export type MenuProviderProps = {
 export function MenuProvider(props: MenuProviderProps) {
   const [isOpen, setOpen] = useState(false);
   const [colorScheme, setColorScheme] = useState<ColorSchemeEnum>("dark");
+  const [isHidden, setHidden] = useState<boolean>(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   return (
@@ -29,6 +32,8 @@ export function MenuProvider(props: MenuProviderProps) {
         setOpen,
         colorScheme,
         setColorScheme,
+        isHidden,
+        setHidden,
         buttonRef,
       }}
     >

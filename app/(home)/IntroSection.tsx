@@ -1,5 +1,6 @@
 "use client";
 
+import useMenu from "@/hooks/useMenu";
 import art1 from "@/public/images/art/art 1.webp";
 import art2 from "@/public/images/art/art 2.webp";
 import art3 from "@/public/images/art/art 3.webp";
@@ -10,6 +11,9 @@ import art7 from "@/public/images/art/art 7.webp";
 import art8 from "@/public/images/art/art 8.webp";
 import art9 from "@/public/images/art/art 9.webp";
 import "@/styles/intro.css";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
@@ -35,20 +39,23 @@ const ARTS = [
   { src: art9, alt: "Art 9" },
 ] as const;
 
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
 export default function IntroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const letterRefs = useRef<Array<HTMLSpanElement | null>>([]);
   const marqueeRef = useRef<HTMLDivElement>(null);
+  const { setOpen, setHidden, buttonRef } = useMenu();
 
   useEffect(() => {
     let cancelled = false;
 
-    letterRefs.current.forEach((elOrNull) => {
-      if (!elOrNull) {
+    letterRefs.current.forEach((element) => {
+      if (!element) {
         return;
       }
 
-      const el = elOrNull;
+      const el = element;
 
       // Set a random initial font immediately.
       let current = FONTS[Math.floor(Math.random() * FONTS.length)];
@@ -145,6 +152,33 @@ export default function IntroSection() {
       cancelAnimationFrame(rafId);
     };
   }, []);
+
+  useGSAP(
+    () => {
+      const buttonRect = buttonRef.current?.getBoundingClientRect();
+
+      if (!buttonRect) {
+        return;
+      }
+
+      gsap.to(sectionRef.current, {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: `bottom-=${buttonRect.bottom} top`,
+          end: `bottom-=${buttonRect.bottom} top`,
+          scrub: true,
+          onEnter() {
+            setOpen(false);
+            setHidden(true);
+          },
+          onEnterBack() {
+            setHidden(false);
+          },
+        },
+      });
+    },
+    { scope: sectionRef },
+  );
 
   return (
     <section id="intro" className="relative h-svh overflow-hidden" ref={sectionRef}>

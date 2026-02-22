@@ -28,7 +28,7 @@ export default function WorkModal(props: WorkModalProps) {
   return createPortal(
     <div className="fixed inset-0 z-102 h-full">
       <div className="relative max-h-full overflow-y-auto bg-white">
-        <Close onClose={props.onClose} />
+        <Close text="" onClose={props.onClose} />
         {props.children}
       </div>
     </div>,

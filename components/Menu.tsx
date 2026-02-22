@@ -18,7 +18,7 @@ export type MenuProps = {
 };
 
 export default function Menu(props: MenuProps) {
-  const { isOpen, setOpen } = useMenu();
+  const { isOpen, setOpen, isHidden } = useMenu();
   const close = useCallback(() => setOpen(false), [setOpen]);
   const lenis = useLenis();
 
@@ -36,14 +36,14 @@ export default function Menu(props: MenuProps) {
 
   return (
     <nav>
-      <MenuToggle />
+      {!isHidden && <MenuToggle />}
       {isOpen && <div className="fixed z-98 h-full w-full bg-black opacity-70" onClick={close} />}
       <div
         className={clsx(
           "fixed top-0 right-0 z-99 flex h-full w-xs flex-col gap-12 overflow-y-auto bg-black px-10 py-24 text-white transition-transform md:w-lg md:px-16 lg:w-xl",
           {
-            "translate-x-full": !isOpen,
-            "translate-x-0": isOpen,
+            "translate-x-full": !isOpen || isHidden,
+            "translate-x-0": isOpen && !isHidden,
           },
         )}
         onClick={close}

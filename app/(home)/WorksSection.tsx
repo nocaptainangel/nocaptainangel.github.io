@@ -36,19 +36,19 @@ type Work = {
 const works: Work[] = [
   {
     name: "Evenz",
-    description: "Evenz is a leading ticket seller that uses a location-based map to show you nearby events.",
+    description: `A location-based event discovery and ticketing platform that helps users find and book nearby events through an interactive map experience.`,
     image: "/images/works/evenz.webp",
     url: "https://dev.evenz.com/v2",
   },
   {
     name: "H2P",
-    description: "Empowering the filipinos at the grassroots level with technology based health systems.",
+    description: `A telehealth platform designed to bring healthcare services closer to users via digital tools — including online doctor consultations, emergency support, and medical history access. Users can explore services, connect with providers, and stay informed about health resources.`,
     image: "/images/works/h2p.webp",
     url: "https://h2p-web.vercel.app",
   },
   {
     name: "Aegyo",
-    description: "A coffee shop mobile app for the coffee lovers.",
+    description: "A cafe mobile app for the coffee lovers.",
     image: "/images/works/aegyo.webp",
     component: <Aegyo />,
   },
