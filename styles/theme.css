@@ -38,3 +38,17 @@
   --default-transition-duration: 300ms;
   --default-transition-timing-function: theme(ease-out);
 }
+
+@media (pointer: fine) {
+  html,
+  body {
+    cursor: none;
+  }
+
+  button,
+  a,
+  input,
+  textarea {
+    cursor: none;
+  }
+}

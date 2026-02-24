@@ -26,8 +26,9 @@ export default function Cursor() {
       }
 
       gsap.set(dotRef.current, {
-        xPercent: -50,
-        yPercent: -50,
+        // Offset so the arrow tip matches the actual cursor position
+        xPercent: -10,
+        yPercent: -40,
       });
       gsap.set(circleRef.current, {
         xPercent: -50,
@@ -117,16 +118,25 @@ export default function Cursor() {
 
   return (
     <>
-      <div
-        className="bg-gray rounded-half pointer-events-none fixed top-0 left-0 z-103 h-3 w-3 group-[.loading]/main:hidden"
-        ref={dotRef}
-        hidden
-      ></div>
+      <div className="pointer-events-none fixed top-0 left-0 z-103 group-[.loading]/main:hidden" ref={dotRef} hidden>
+        <div className="relative flex items-center gap-1.5">
+          <svg
+            className="h-5 w-5 fill-[#e0171e] drop-shadow-[0_1px_1px_rgba(0,0,0,0.35)]"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M4 3.5 18.5 11 12.5 13.5 11 20.5 4 3.5Z" stroke="white" strokeWidth="1" strokeLinejoin="round" />
+          </svg>
+          <div className="rounded-full bg-[#e0171e] px-3 py-1 text-[11px] font-medium text-white shadow-[0_2px_4px_rgba(0,0,0,0.25)]">
+            You
+          </div>
+        </div>
+      </div>
       <div
         className={clsx(
-          "border-gray rounded-half pointer-events-none fixed top-0 left-0 z-103 h-16 w-16 border transition-[height,width] group-[.loading]/main:hidden",
+          "rounded-half pointer-events-none fixed top-0 left-0 z-103 h-16 w-16 transition-[height,width] group-[.loading]/main:hidden",
           {
-            "bg-dark-gray h-36 w-36 border-none": !!children,
+            "h-36 w-36 border-none bg-[#ff832d]": !!children,
           },
         )}
         ref={circleRef}
