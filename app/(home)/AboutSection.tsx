@@ -193,8 +193,11 @@ export default function AboutSection() {
             </div>
           </div>
         </div>
-        <div className="flex h-screen flex-col justify-center p-8 sm:items-end md:p-12 lg:p-28">
-          <div className="flex w-full max-w-full flex-col-reverse justify-between gap-8 rounded-2xl bg-black p-10 sm:w-3xl sm:flex-row md:rounded-3xl md:p-14">
+          <div className="flex h-screen flex-col justify-center p-8 sm:items-end md:p-12 lg:p-28">
+          <div
+            className="flex w-full max-w-full flex-col-reverse justify-between gap-8 rounded-2xl bg-black p-10 sm:w-3xl sm:flex-row md:rounded-3xl md:p-14"
+            data-cursor="angel"
+          >
             <div className="font-montserrat text-white md:py-8">
               <h2 className="mb-6 text-center text-5xl font-bold md:text-left">
                 I&apos;m <span className="font-tiempos-fine font-normal italic">Angel</span>.

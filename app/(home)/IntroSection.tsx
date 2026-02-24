@@ -193,7 +193,7 @@ export default function IntroSection() {
 
         {/* Marquee: clipped by the overflow-hidden wrapper */}
         <div className="overflow-hidden">
-          <div className="marquee-track" ref={marqueeRef}>
+          <div className="marquee-track" ref={marqueeRef} data-cursor="angel">
             {/* Set 1 — pr matches gap so both sets are equal width */}
             <div className="flex gap-2 pr-2 md:gap-3 md:pr-3">
               {ARTS.map((art) => (
