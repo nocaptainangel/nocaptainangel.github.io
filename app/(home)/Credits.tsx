@@ -64,6 +64,8 @@ export default function Credits() {
           <div>Angel Leijendekker</div>
           <div>Curiosity Department</div>
           <div>Angel Leijendekker</div>
+          <div>Prompt Engineer</div>
+          <div>Angel Leijendekker</div>
           <div>Dev Support</div>
           <div>Jonathan Leijendekker</div>
         </article>
@@ -74,6 +76,10 @@ export default function Credits() {
             <div>Figma</div>
             <div>Awwwards</div>
             <div>Codepen.io</div>
+            <div>ChatGPT</div>
+            <div>Gemini</div>
+            <div>Claude</div>
+            <div>Cursor</div>
             <div>Giphy</div>
             <div>Starbucks Venti Iced White Mocha</div>
             <div>Post-it Notes Everywhere</div>

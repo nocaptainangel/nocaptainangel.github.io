@@ -163,8 +163,8 @@ export default function AboutSection() {
           My Support System
         </div>
         <div className="skill font-montserrat flex items-center gap-5 px-8 text-8xl font-bold whitespace-nowrap md:px-16">
-          Product Thinking <Heart /> User Insights <Heart /> Experimentation <Heart /> Figma <Heart /> HTML <Heart />{" "}
-          CSS <Heart /> JavaScript
+          Cursor <Heart /> Claude <Heart /> Product Thinking <Heart /> User Insights <Heart /> Experimentation <Heart />{" "}
+          Figma <Heart /> HTML <Heart /> CSS <Heart /> JavaScript
         </div>
         <div className="skill-title font-wix-medefor-display px-8 text-sm font-medium tracking-[21%] md:px-16">
           To Do The Things I Love
@@ -193,7 +193,7 @@ export default function AboutSection() {
             </div>
           </div>
         </div>
-          <div className="flex h-screen flex-col justify-center p-8 sm:items-end md:p-12 lg:p-28">
+        <div className="flex h-screen flex-col justify-center p-8 sm:items-end md:p-12 lg:p-28">
           <div
             className="flex w-full max-w-full flex-col-reverse justify-between gap-8 rounded-2xl bg-black p-10 sm:w-3xl sm:flex-row md:rounded-3xl md:p-14"
             data-cursor="angel"
