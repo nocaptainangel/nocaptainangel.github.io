@@ -26,6 +26,24 @@ export default function Cursor() {
         return;
       }
 
+      const main = document.querySelector("main");
+      let loadingObserver: MutationObserver | null = null;
+
+      function syncVisibility() {
+        const isLoading = main?.classList.contains("loading");
+
+        gsap.set([dotRef.current, circleRef.current], {
+          autoAlpha: isLoading ? 0 : 1,
+        });
+      }
+
+      syncVisibility();
+
+      if (main) {
+        loadingObserver = new MutationObserver(syncVisibility);
+        loadingObserver.observe(main, { attributes: true, attributeFilter: ["class"] });
+      }
+
       gsap.set(dotRef.current, {
         // Offset so the arrow tip matches the actual cursor position
         xPercent: -10,
@@ -168,6 +186,10 @@ export default function Cursor() {
           window.clearTimeout(idleTimeout);
         }
         stopIdle();
+
+        if (loadingObserver) {
+          loadingObserver.disconnect();
+        }
       };
     },
     { dependencies: [dotRef, circleRef, intersections] },
