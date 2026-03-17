@@ -36,7 +36,7 @@ type Work = {
 const works: Work[] = [
   {
     name: "Evenz",
-    description: `Evenz is a next-generation ticketing company that brings local and international events to your fingertips. With a smart location-based map, users can discover concerts, festivals, and community experiences nearby, and purchase tickets seamlessly — all in one place.<br><br><i>(Web's mobile view is currently in the works)</i>`,
+    description: `Evenz is a next-generation ticketing company that brings local and international events to your fingertips. With a smart location-based map, users can discover concerts, festivals, and community experiences nearby, and purchase tickets seamlessly — all in one place.`,
     image: "/images/works/evenz.webp",
     url: "https://evenz.com",
   },
