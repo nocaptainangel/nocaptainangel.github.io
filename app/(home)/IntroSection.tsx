@@ -186,9 +186,9 @@ export default function IntroSection() {
       {/* Mobile: full-width at top. md+: 42%-wide vertically centered on right */}
       <div className="absolute top-0 flex h-full w-full flex-col content-center justify-center gap-4 pb-40 lg:right-0 lg:w-1/2 lg:pt-30 lg:pb-0">
         <p className="font-montserrat text-headline px-6 text-[13px] leading-relaxed font-semibold md:pr-8 lg:pr-28 lg:pl-0">
-          Hi, I&apos;m Angel Leijendekker — a Netherlands-based product builder with a background in UX design and
-          front-end development. I turn user insights into meaningful digital experiences where design, technology, and
-          product thinking meet.
+          Hi, I&apos;m Angel Leijendekker — a product designer and builder based in the Netherlands. I design with
+          people in mind, solving the problems they face and creating digital experiences that make their lives a little
+          easier.
         </p>
 
         {/* Marquee: clipped by the overflow-hidden wrapper */}
