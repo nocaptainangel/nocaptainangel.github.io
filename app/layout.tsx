@@ -6,7 +6,10 @@ import { MenuProvider } from "@/contexts/MenuProvider";
 import {
   agbalumo,
   barrio,
+  bigShouldersDisplay,
   exile,
+  inter,
+  jetbrainsMono,
   manufacturingConsent,
   montserrat,
   pixelifySans,
@@ -55,6 +58,9 @@ export default function RootLayout(props: Props) {
             exile.variable,
             agbalumo.variable,
             manufacturingConsent.variable,
+            bigShouldersDisplay.variable,
+            inter.variable,
+            jetbrainsMono.variable,
           )}
           data-lenis-prevent
         >

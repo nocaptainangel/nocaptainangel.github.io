@@ -1,7 +1,10 @@
 import {
   Agbalumo,
   Barrio,
+  Big_Shoulders,
   Exile,
+  Inter,
+  JetBrains_Mono,
   Manufacturing_Consent,
   Montserrat,
   Pixelify_Sans,
@@ -95,4 +98,24 @@ export const manufacturingConsent = Manufacturing_Consent({
   subsets: ["latin"],
   variable: "--font-manufacturing-consent",
   weight: "400",
+});
+
+// Google renamed "Big Shoulders Display" to "Big Shoulders"; next/font/google has no
+// Big_Shoulders_Display export, so this falls back to Big_Shoulders.
+export const bigShouldersDisplay = Big_Shoulders({
+  subsets: ["latin"],
+  variable: "--font-big-shoulders-display",
+  weight: ["500", "700", "800", "900"],
+});
+
+export const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+});
+
+export const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  weight: ["400", "500"],
 });

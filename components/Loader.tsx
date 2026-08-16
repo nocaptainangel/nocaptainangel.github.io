@@ -15,6 +15,7 @@ const greetings = [
   "Ahoj",
   "Annyeonghaseyo",
   "Kamusta",
+  "Buongiorno",
   "Hallo",
   "Hello",
 ];

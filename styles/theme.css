@@ -26,6 +26,9 @@
   --font-pixelify-sans: var(--font-pixelify-sans);
   --font-exile: var(--font-exile);
   --font-agbalumo: var(--font-agbalumo);
+  --font-big-shoulders-display: var(--font-big-shoulders-display);
+  --font-inter: var(--font-inter);
+  --font-jetbrains-mono: var(--font-jetbrains-mono);
 
   /* Radius */
   --radius-5xl: 4rem;

@@ -1,12 +1,13 @@
 "use client";
 
 import Aegyo from "@/app/(works)/Aegyo";
+import Evenz from "@/app/(works)/Evenz";
 import Fiora from "@/app/(works)/Fiora";
 import Together from "@/app/(works)/Together";
 import WorkModal from "@/app/(works)/WorkModal";
+import config from "@/config";
 import useCursor from "@/hooks/useCursor";
 import useMenu from "@/hooks/useMenu";
-import { disableScroll, enableScroll } from "@/utils/dom";
 import { useGSAP } from "@gsap/react";
 import clsx from "clsx";
 import gsap from "gsap";
@@ -19,6 +20,7 @@ import {
   ReactNode,
   RefObject,
   useCallback,
+  useEffect,
   useLayoutEffect,
   useMemo,
   useRef,
@@ -31,6 +33,7 @@ type Work = {
   image: string;
   url?: string;
   component?: ReactNode;
+  slug?: string;
 };
 
 const works: Work[] = [
@@ -38,7 +41,8 @@ const works: Work[] = [
     name: "Evenz",
     description: `Evenz is a next-generation ticketing company that brings local and international events to your fingertips. With a smart location-based map, users can discover concerts, festivals, and community experiences nearby, and purchase tickets seamlessly — all in one place.`,
     image: "/images/works/evenz.webp",
-    url: "https://evenz.com",
+    component: <Evenz />,
+    slug: config.url.work.evenz.slice(1),
   },
   {
     name: "H2P",
@@ -51,18 +55,21 @@ const works: Work[] = [
     description: `Aegyo is a contemporary café specializing in expertly crafted coffee and beverages, offering a welcoming space to relax and connect. Complementing the in-store experience, Aegyo's app makes it easy to explore the menu, place orders, and stay updated on specials, bringing convenience and quality to every visit.`,
     image: "/images/works/aegyo.webp",
     component: <Aegyo />,
+    slug: config.url.work.aegyo.slice(1),
   },
   {
     name: "Fiora",
     description: `Fiora is an intuitive web app that makes buying flowers simple and convenient. With a curated selection of fresh blooms, real-time delivery options, and an easy-to-use interface, Fiora helps users find and send the perfect floral arrangements for any occasion.`,
     image: "/images/works/fiora.webp",
     component: <Fiora />,
+    slug: config.url.work.fiora.slice(1),
   },
   {
     name: "Together",
     description: `Together is a mobile app that connects volunteers with meaningful opportunities in their communities. With location-based discovery, personalized recommendations, and easy sign-ups, Together makes it simple for users to give back, engage with causes they care about, and make a real impact.`,
     image: "/images/works/together.webp",
     component: <Together />,
+    slug: config.url.work.together.slice(1),
   },
 ];
 
@@ -71,6 +78,9 @@ type WorkStickyProps = {
   size: number;
   work: Work;
   parentRef: RefObject<HTMLDivElement | null>;
+  isOpen: boolean;
+  onOpen: (slug: string) => void;
+  onClose: () => void;
 };
 
 type ProjectCounterProps = {
@@ -81,6 +91,9 @@ type ProjectCounterProps = {
 
 type WorkImageProps = {
   work: Work;
+  isOpen: boolean;
+  onOpen: (slug: string) => void;
+  onClose: () => void;
 };
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -89,6 +102,40 @@ export default function WorksSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const worksRefs = useMemo(() => Array.from({ length: works.length }, () => createRef<HTMLDivElement>()), []);
   const { setColorScheme, buttonRef } = useMenu();
+  const [hash, setHash] = useState("");
+  // True while the currently-open modal's hash entry was pushed by us (a
+  // card click) this session, so closing it via Esc/X can safely call
+  // history.back() to unwind that entry. False when the modal is open
+  // because the page loaded with the hash already in the URL (a shared
+  // deep link) — closing then must not risk navigating off the site, so it
+  // strips the hash in place instead.
+  const pushedRef = useRef(false);
+
+  useEffect(() => {
+    function onHashChange() {
+      setHash(window.location.hash.slice(1));
+    }
+
+    onHashChange();
+    window.addEventListener("hashchange", onHashChange);
+
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  const onOpen = useCallback((slug: string) => {
+    pushedRef.current = true;
+    window.location.hash = slug;
+  }, []);
+
+  const onClose = useCallback(() => {
+    if (pushedRef.current) {
+      pushedRef.current = false;
+      window.history.back();
+    } else {
+      window.history.replaceState(null, "", window.location.pathname + window.location.search);
+      setHash("");
+    }
+  }, []);
 
   useGSAP(
     () => {
@@ -126,7 +173,16 @@ export default function WorksSection() {
       <div className="absolute inset-0 top-0 z-10 h-full w-full">
         <div className="sticky inset-0 h-screen w-full overflow-hidden">
           {works.map((work, i) => (
-            <WorkSticky key={i} index={i} size={works.length} work={work} parentRef={worksRefs[i]} />
+            <WorkSticky
+              key={i}
+              index={i}
+              size={works.length}
+              work={work}
+              parentRef={worksRefs[i]}
+              isOpen={!!work.slug && work.slug === hash}
+              onOpen={onOpen}
+              onClose={onClose}
+            />
           ))}
         </div>
       </div>
@@ -200,7 +256,7 @@ function WorkSticky(props: WorkStickyProps) {
             size={props.size}
           />
           <div className="flex flex-col gap-12 lg:clear-left lg:gap-0">
-            <WorkImage work={props.work} />
+            <WorkImage work={props.work} isOpen={props.isOpen} onOpen={props.onOpen} onClose={props.onClose} />
           </div>
         </div>
         <div className="flex flex-1/5 flex-col lg:flex-1/2 lg:gap-24 lg:py-28">
@@ -229,24 +285,17 @@ function ProjectCounter(props: ProjectCounterProps) {
 function WorkImage(props: WorkImageProps) {
   const containerRef = useRef<HTMLAnchorElement>(null);
   const { intersect } = useCursor();
-  const [showModal, setShowModal] = useState(false);
   const onClick = useCallback(
     (event: MouseEvent) => {
-      if (!!props.work.url) {
+      if (!!props.work.url || !props.work.slug) {
         return;
       }
 
       event.preventDefault();
-
-      disableScroll();
-      setShowModal(true);
+      props.onOpen(props.work.slug);
     },
-    [props.work.url],
+    [props.work.url, props.work.slug, props.onOpen],
   );
-  const onClose = useCallback(() => {
-    enableScroll();
-    setShowModal(false);
-  }, []);
 
   useLayoutEffect(() => {
     if (!containerRef.current) {
@@ -261,7 +310,7 @@ function WorkImage(props: WorkImageProps) {
 
   return (
     <>
-      {props.work.component && showModal && <WorkModal onClose={onClose}>{props.work.component}</WorkModal>}
+      {props.work.component && props.isOpen && <WorkModal onClose={props.onClose}>{props.work.component}</WorkModal>}
       <Link
         className="relative block aspect-square w-full overflow-hidden rounded-2xl md:w-lg md:self-center"
         href={props.work.url || "#"}

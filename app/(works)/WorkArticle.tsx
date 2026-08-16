@@ -1,192 +1,133 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
-import { ReactNode } from "react";
+import Reveal from "@/app/(works)/Reveal";
+import WorkSection from "@/app/(works)/WorkSections";
+import "@/styles/work.css";
+import { CSSProperties, ReactNode } from "react";
+import { StaticImageData } from "next/image";
 
-type NameImage = {
-  name: string;
-  image: StaticImageData;
-};
-
-type Wireframe = {
-  diagram?: StaticImageData;
-  description?: string;
-  mockups: {
-    lofi?: Mockup;
-    hifi?: Mockup;
-  };
-};
-
-type Mockup = {
-  iframe?: string;
-  images?: StaticImageData[];
-  subtitle?: string;
-};
-
-type Usability = {
-  texts: string[];
-  iframe?: string;
-  images?: StaticImageData[];
-};
-
-type SectionContentProps = {
-  children: ReactNode;
-};
-
-type SectionTitleProps = {
+export type SectionHead = {
+  label: string;
   title: string;
-  name: string;
+  lead?: string;
 };
 
-type AccentTitleProps = {
+export type WorkSectionData =
+  | { kind: "prose"; head: SectionHead; body: ReactNode }
+  | {
+      kind: "list";
+      head: SectionHead;
+      items: { marker: string; title: string; body: ReactNode }[];
+      aside?: { image: StaticImageData; caption?: string; note?: string };
+    }
+  | {
+      kind: "cards";
+      head: SectionHead;
+      cards: { tag: string; title: string; body: string; image?: StaticImageData }[];
+    }
+  | { kind: "compare"; head: SectionHead; before: StaticImageData; after: StaticImageData; caption: string }
+  | {
+      kind: "walkthrough";
+      head: SectionHead;
+      shot?: StaticImageData;
+      video?: string;
+      steps: { title: string; body: ReactNode }[];
+    }
+  | {
+      kind: "media";
+      head: SectionHead;
+      body?: ReactNode;
+      media: { image?: StaticImageData; iframe?: string; caption?: string }[];
+    }
+  | { kind: "split"; head: SectionHead; body: ReactNode; items: { term: string; body: string }[] }
+  | { kind: "takeaways"; head: SectionHead; intro?: string; items: { title?: string; body: string }[] };
+
+export type WorkArticleProps = {
+  eyebrow: string;
   title: string;
+  intro: string;
+  link?: string;
+  hero: StaticImageData;
+  meta: { key: string; value: string }[];
+  sections: WorkSectionData[];
+  footerLabel: string;
 };
 
-export type WorkLayoutProps = {
-  title: string;
-  banner: StaticImageData;
-  name: string;
-  goals: string[];
-  role: string;
-  persona: NameImage;
-  userJourney?: NameImage;
-  wireframe: Wireframe;
-  usability: Usability;
-  conclusions: string[];
-  children: ReactNode;
-};
-
-export default function WorkArticle(props: WorkLayoutProps) {
+export default function WorkArticle(props: WorkArticleProps) {
   return (
-    <article className="font-montserrat">
-      <div className="relative mb-6 h-52 w-full overflow-hidden md:h-96">
-        <Image className="h-full w-full object-cover" src={props.banner} alt={props.name} />
-      </div>
-
-      {/* Article title & goal */}
-      <SectionContent>
-        <div className="flex grid-cols-5 flex-col gap-8 md:grid">
-          <div className="col-span-2">
-            <SectionTitle title="Project name" name={props.name} />
+    <article className="work">
+      <WorkHero
+        eyebrow={props.eyebrow}
+        title={props.title}
+        intro={props.intro}
+        link={props.link}
+        hero={props.hero}
+        meta={props.meta}
+      />
+      {props.sections.map((section, i) => (
+        <div key={i}>
+          <div className="wrap">
+            <StubDivider />
           </div>
-          <div className="col-span-3 flex flex-col gap-8">
-            <div className="flex flex-col gap-2">
-              <AccentTitle title="Project goal" />
-              <div className="flex flex-col gap-6 leading-7">
-                {props.goals.map((goal, i) => (
-                  <p key={i}>{goal}</p>
-                ))}
-              </div>
-            </div>
-            <div className="flex flex-col gap-2">
-              <AccentTitle title="Role & duration" />
-              <div className="text-gray text-sm">{props.role}</div>
-            </div>
-          </div>
+          <WorkSection section={section} index={i} />
         </div>
-      </SectionContent>
-
-      {/* Research study details */}
-      <SectionContent>
-        <SectionTitle title="Research study details" name="Research outcomes" />
-        <div className="flex flex-col leading-7">{props.children}</div>
-        <div className="font-semibold">Persona:</div>
-        <Image className="w-full" src={props.persona.image} alt={`Persona: ${props.persona.name}`} />
-        {!!props.userJourney && (
-          <>
-            <div className="font-semibold">User Journey Map:</div>
-            <Image className="w-full" src={props.userJourney.image} alt={`User Journey: ${props.userJourney.name}`} />
-          </>
-        )}
-      </SectionContent>
-
-      {/* Initial design concepts */}
-      <SectionContent>
-        <SectionTitle title="Initial design concepts" name="Wireframing and prototyping" />
-        {!!props.wireframe.description && <div>{props.wireframe.description}</div>}
-        {!!props.wireframe.diagram && (
-          <Image className="w-full" src={props.wireframe.diagram} alt={`${props.title} User flow`} />
-        )}
-        {!!props.wireframe.mockups.lofi?.subtitle && <div>{props.wireframe.mockups.lofi.subtitle}</div>}
-        <div className="flex justify-center">
-          {!!props.wireframe.mockups.lofi?.iframe && (
-            <iframe
-              className="h-[70vh] w-full border-black"
-              src={props.wireframe.mockups.lofi.iframe}
-              allowFullScreen
-            />
-          )}
-          {props.wireframe.mockups.lofi?.images?.map((image, i) => (
-            <Image className="w-full" key={i} src={image} alt={`Lo-fi mockup: ${i + 1}`} />
-          ))}
+      ))}
+      <footer>
+        <div className="wrap" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
+          <span className="mono">{props.footerLabel}</span>
+          <span className="mono">ANGEL LEIJENDEKKER</span>
         </div>
-        {!!props.wireframe.mockups.hifi?.subtitle && <div>{props.wireframe.mockups.hifi.subtitle}</div>}
-        <div className="flex justify-center">
-          {!!props.wireframe.mockups.hifi?.iframe && (
-            <iframe
-              className="h-[70vh] w-full border-black"
-              src={props.wireframe.mockups.hifi.iframe}
-              allowFullScreen
-            />
-          )}
-          {props.wireframe.mockups.hifi?.images?.map((image, i) => (
-            <Image className="w-full" key={i} src={image} alt={`Hi-fi mockup: ${i + 1}`} />
-          ))}
-        </div>
-      </SectionContent>
-
-      {/* Test phase */}
-      <SectionContent>
-        <SectionTitle title="Test phase" name="Usability testing" />
-        <div className="flex flex-col gap-6 leading-7">
-          {props.usability.texts.map((text, i) => (
-            <p key={i}>{text}</p>
-          ))}
-        </div>
-        <div className="flex justify-center">
-          {!!props.usability.iframe && (
-            <iframe className="h-[70vh] w-full border-black" src={props.usability.iframe} allowFullScreen />
-          )}
-          {props.usability.images?.map((image, i) => (
-            <Image className="w-full" key={i} src={image} alt={`Usability: ${props.name}`} />
-          ))}
-        </div>
-      </SectionContent>
-
-      {/* Takeaways */}
-      <SectionContent>
-        <SectionTitle title="Takeaways" name="Conclusion" />
-        <div className="flex flex-col gap-6 leading-7">
-          {props.conclusions.map((conclusion, i) => (
-            <p key={i}>{conclusion}</p>
-          ))}
-        </div>
-      </SectionContent>
+      </footer>
     </article>
   );
 }
 
-function SectionContent(props: SectionContentProps) {
+type WorkHeroProps = {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  link?: string;
+  hero: StaticImageData;
+  meta: { key: string; value: string }[];
+};
+
+function WorkHero(props: WorkHeroProps) {
   return (
-    <div className="flex justify-center px-8 py-8 sm:py-14 lg:px-0">
-      <div className="flex max-w-6xl grow flex-col gap-8 lg:px-8">{props.children}</div>
-    </div>
+    <section className="hero" style={{ "--hero-image": `url(${props.hero.src})` } as CSSProperties}>
+      <div className="wrap">
+        <div className="hero-eyebrow mono">{props.eyebrow}</div>
+        <h1 className="hero-title display">{props.title}</h1>
+        <p className="hero-sub">{props.intro}</p>
+        {!!props.link && (
+          <a className="hero-link mono" href={props.link} target="_blank" rel="noreferrer">
+            View live site
+          </a>
+        )}
+        <div className="meta-strip">
+          {props.meta.map((item, i) => (
+            <div className="meta-item" key={i}>
+              <div className="k">{item.key}</div>
+              <div className="v">{item.value}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
-function SectionTitle(props: SectionTitleProps) {
+export function SectionHeadView(props: { number: string; head: SectionHead }) {
   return (
-    <div className="flex flex-col gap-1">
-      <AccentTitle title={props.title} />
-      <h1 className="text-4xl leading-snug font-bold">{props.name}</h1>
-    </div>
+    <Reveal className="section-head">
+      <div className="section-num mono">
+        {props.number} — {props.head.label}
+      </div>
+      <h2 className="section-title display">{props.head.title}</h2>
+      {!!props.head.lead && <p className="section-lead">{props.head.lead}</p>}
+    </Reveal>
   );
 }
 
-function AccentTitle(props: AccentTitleProps) {
-  return (
-    <div className="text-light-blue font-wix-medefor-display text-sm font-extralight tracking-[5px] uppercase">
-      {props.title}
-    </div>
-  );
+function StubDivider() {
+  return <div className="stub-divider" />;
 }

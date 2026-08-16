@@ -7,6 +7,7 @@ const config = {
       aegyo: "/works/aegyo",
       fiora: "/works/fiora",
       together: "/works/together",
+      evenz: "/works/evenz",
     },
   },
 };
