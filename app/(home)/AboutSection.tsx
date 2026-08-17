@@ -204,15 +204,15 @@ export default function AboutSection() {
               </h2>
               <div className="flex flex-col gap-4 text-xs font-medium md:text-sm">
                 <div>
-                  I&apos;m a curious and user-focused product thinker with a foundation in UX design. I care deeply
-                  about understanding people and building products that genuinely improve everyday experiences. I enjoy
-                  working at the intersection of users, design, and technology. I love simplifying complex problems and
-                  bringing ideas to life.
+                  I'm a product designer with a background in UX and a natural curiosity for how people think, behave,
+                  and interact with the things we build. I enjoy working across the whole product — from understanding
+                  the problem and shaping the direction to designing the details and working with others to bring it to
+                  life.
                 </div>
                 <div>
-                  Outside of work, creativity continues to shape how I think and learn. I design and build across
-                  different mediums, from digital illustration and visual storytelling to handmade crafts. I&apos;m
-                  inspired by how creativity, curiosity, and observation translate into better product decisions.
+                  Outside of product design, Im usually making something. I enjoy illustration, photography, crafting,
+                  baking, and experimenting with different creative mediums. I think that habit of making, observing,
+                  and being curious has shaped how I approach design just as much as my work has.
                 </div>
               </div>
             </div>
